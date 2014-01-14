@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <title>Capture Photo</title>
+        
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="../cordova-2.5.0.js"></script>
+        <script type="text/javascript">
+            
+            var pictureSource;   // picture source
+            var destinationType; // sets the format of returned value
+            var l_url ="http://10.0.0.61:8015/Pages/Json.aspx?savefarmID="+ localStorage.j_username;
+            // Wait for Cordova to connect with the device
+            //
+            document.addEventListener("deviceready",onDeviceReady,false);
+            
+            // Cordova is ready to be used!
+            //
+            function onDeviceReady() {
+                pictureSource=navigator.camera.PictureSourceType;
+                destinationType=navigator.camera.DestinationType;
+            }
+            
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoDataSuccess(imageData) {
+                // Uncomment to view the base64 encoded image data
+                 console.log(imageData);
+                
+                // Get image handle
+                //
+                var smallImage = document.getElementById('smallImage');
+                
+                // Unhide image elements
+                //
+                smallImage.style.display = 'block';
+                
+                // Show the captured photo
+                // The inline CSS rules are used to resize the image
+                //
+                smallImage.src = "data:image/jpeg;base64," + imageData;
+            }
+            
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoURISuccess(imageURI) {
+                // Uncomment to view the image file URI
+                // console.log(imageURI);
+                
+                // Get image handle
+                //
+                var largeImage = document.getElementById('largeImage');
+                
+                // Unhide image elements
+                //
+                largeImage.style.display = 'block';
+                
+                // Show the captured photo
+                // The inline CSS rules are used to resize the image
+                //
+                largeImage.src = imageURI;
+                
+            
+                
+            }
+            
+            // A button will call this function
+            //
+            function capturePhoto() {
+                // Take picture using device camera and retrieve image as base64-encoded string
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+                                            destinationType: destinationType.DATA_URL });
+            }
+            
+            // A button will call this function
+            //
+            function capturePhotoEdit() {
+                // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+                                            destinationType: destinationType.DATA_URL });
+            }
+            
+            // A button will call this function
+            //
+            function getPhoto(source) {
+                // Retrieve image file location from specified source
+                navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+                                            destinationType: destinationType.FILE_URI,
+                                            sourceType: source });
+            }
+            
+            // Called if something bad happens.
+            // 
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            
+            function goback(){
+            
+              history.go(-1);
+            
+            }
+            
+            
+            function  PrivewDB(){
+            
+                //var l_url ="http://10.0.0.61:8015/Pages/Json.aspx?savefarmID="+ localStorage.j_username;
+                
+                //alert(localStorage.j_username +">>>" + localStorage.j_fid + ">>>" + localStorage.j_m);
+
+                var strDB = "图片预览";
+                
+                /*
+                strDB +="<form method='post' enctype='multipart/form-data' name='myform'  id='myform' target='actionframe'>";
+                strDB +="<input readonly class='Privew'  name='MaterialIDs' type=text value='"+ localStorage.j_m +"'/>";
+                strDB +="<input readonly class='Privew'  name= type=text value='"+ localStorage.j_username +"'/>";
+                strDB +="<input readonly class='Privew' name='FID' type=text value='"+ localStorage.j_fid +"'/>";
+                
+                strDB +="</from>";
+                */
+
+                $("#ffffff").append(strDB);
+                
+                //document.getElementById("myform").action = l_url;
+                //document.getElementById("myform").submit();
+                //window.location.href="../willdo/index_z.html";
+                //var l_path = document.getElementById("largeImage").src;
+                //var J_path = document.getElementById("smallImage").src;
+                
+                
+            }
+            
+            function getPhoto0(){
+            
+                navigator.camera.getPicture(uploadPhoto,
+                                            function(message) { alert('get picture failed'); },
+                                            { quality: 50,
+                                            destinationType: navigator.camera.DestinationType.FILE_URI,
+                                            sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                            );
+
+            
+                
+            
+            }
+        
+            
+            function uploadPhoto(imageURI) {
+                //alert(">>>");
+                
+                var options = new FileUploadOptions();
+                options.fileKey="Upd_farm";
+                options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+                options.mimeType="image/jpeg";
+                var params = {};
+                params.FID = localStorage.j_fid;
+                params.MaterialIDs = localStorage.j_m;
+                
+                //alert(params.FID + params.MaterialIDs);
+                
+                options.params = params;
+                var ft = new FileTransfer();
+                
+                alert(l_url);
+                ft.upload(imageURI, encodeURI(l_url), win, fail, options);
+                
+                
+         }
+            
+            function win(r) {
+                console.log("Code = " + r.responseCode);
+                console.log("Response = " + r.response);
+                console.log("Sent = " + r.bytesSent);
+            }
+            
+            function fail(error) {
+                alert("An error has occurred: Code = " + error.code);
+                console.log("upload error source " + error.source);
+                console.log("upload error target " + error.target);
+            }
+            
+            $(function() {
+             
+              PrivewDB();
+              
+              
+              })
+            
+            function uploadDB(){
+            
+                
+             
+            }
+            
+            </script>
+        
+    </head>
+    <style>
+        
+        .button{
+            
+            width:80px;
+            height:60px;
+            background-color:#e4e4e4;
+           
+            font-size:20px;
+            padding:15px;
+            background:url("../img/ubuttonbg.png");
+            color:#0096ff;
+            float:left;
+            border:0;
+            
+        }
+        .Privew{
+            width:72px;
+            height:60px;
+            background-color:#e4e4e4;
+            
+            font-size:12px;
+            padding:5px;
+            background:url("../img/ubuttonbg.png");
+            color:#000;
+            float:left;
+            border:0;
+        
+        
+        }
+        
+        </style>
+    <body>
+        <div id='ffffff'  class='Privew' ></div>
+         
+        <div style="float:left;" >
+        <img style="display:none;width:300px;height:300px;"  id="smallImage" src="" />
+        <img style="display:none;width:300px" id="largeImage"  src="" />
+        
+            
+        <!--<button onclick="capturePhoto();">Capture Photo</button> <br>-->
+        <button class='button' onclick="goback();">返回</button>
+        <button class='button' onclick="capturePhotoEdit();">拍照</button>
+        <!--<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>-->
+        <button class='button' onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">相册</button>
+       
+        
+        </div>
+            
+    </body>
+</html>

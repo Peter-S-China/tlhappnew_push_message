@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/jquery_last_mini.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+            <title>HomePage</title>
+    </head>
+    <body >
+        
+        <script>
+            
+          window.onload=function(){
+            
+            var btn = document.getElementById("btn");
+              btn.click();
+             
+            
+          }
+            
+            
+         
+            var myMessages = ['info','warning','error','success']; // define the messages types
+            function hideAllMessages()
+            {
+                var messagesHeights = new Array(); // this array will store height for each
+                
+                for (i=0; i<myMessages.length; i++)
+                {
+                    messagesHeights[i] = $('.' + myMessages[i]).outerHeight();
+                    $('.' + myMessages[i]).css('top', -messagesHeights[i]); //move element outside viewport
+                }
+            }
+            
+            function showMessage(type)
+            {
+                $('.'+ type +'-trigger').click(function(){
+                                               hideAllMessages();
+                                               $('.'+type).animate({top:"0"}, 500);
+                                               });
+            }
+            
+            $(document).ready(function(){
+                              
+                              // Initially, hide them all
+                              hideAllMessages();
+                              
+                              //showMessage(info);
+                              // Show message
+                              for(var i=0;i<myMessages.length;i++)
+                              {
+                              showMessage(myMessages[i]);
+                              }
+                              
+                               When message is clicked, hide it
+                              $('.message').click(function(){
+                                                  $(this).animate({top: -$(this).outerHeight()}, 500);
+                                                  });
+                              
+                              });       
+            </script>
+        
+        
+
+        
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#E4E4E4;
+                
+                background-repeat:no-repeat fixed;
+                background-position: left top;
+                background-attachment:fixed;
+                
+                
+            }
+            
+            .f_content{
+ 
+                color: #fff;
+                padding: 15px;
+                width:280px;
+                text-shadow: 0 1px 0 rgba(0,0,0,.1);
+                height:480px;
+                
+                position:fixed;
+                
+            }
+     
+                       
+            .message
+            {
+                -webkit-background-size: 40px 40px;
+                -moz-background-size: 40px 40px;
+                background-size: 40px 40px;
+                
+                
+                color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
+                color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
+                color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
+                to(transparent));
+                background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                transparent 75%, transparent);
+                background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                transparent 75%, transparent);
+                background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                transparent 75%, transparent);
+                background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                transparent 75%, transparent);
+                background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                transparent 75%, transparent);
+                
+                -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1);
+                -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.1);
+                box-shadow: inset 0 -1px 0 rgba(255,255,255,.1);
+                width: 100%;
+                
+                color: #fff;
+                padding: 15px;
+                position: fixed;
+             
+                _position: absolute;
+                text-shadow: 0 1px 0 rgba(0,0,0,.1);
+                -webkit-animation: animate-bg 5s linear infinite;
+                -moz-animation: animate-bg 5s linear infinite;
+            }
+            
+            .info
+            {
+                background-color: #4ea5cd;
+                border-color: #3b8eb5;
+            }
+            
+            .error
+            {
+                background-color: #de4343;
+                border-color: #c43d3d;
+            }
+            
+            .warning
+            {
+                background-color: #eaaf51;
+                border-color: #d99a36;
+            }
+            
+            .success
+            {
+                background:rgba(255, 255, 253, 0.1) none repeat scroll 0 0 !important;
+                height:-1px;
+                width:28.7em;
+                                
+            }
+            
+            .message h3
+            {
+                margin: 0 0 0px 0;
+            }
+            
+            .message p
+            {
+                margin: 0;
+            }
+            
+            @-webkit-keyframes animate-bg
+            {
+                from {
+                    background-position: 0 0;
+                }
+                to {
+                    background-position: -80px 0;
+                }
+            }
+            
+            
+            @-moz-keyframes animate-bg 
+            {
+                from {
+                    background-position: 0 0;
+                }
+                to {
+                    background-position: -80px 0;
+                }
+            }
+            
+            
+            #trigger-list
+            {
+                text-align: center;
+                float:center;
+                margin-top:1em;
+                padding: 0;
+                width:200px;
+                
+            }
+            
+            #trigger-list li
+            {
+                display: inline-block;
+                *display: inline;
+                zoom: 1;
+                margin:5px;
+            }
+            
+            #trigger-list .trigger
+            {
+                display: inline-block;
+                background: #ddd;
+                border: 1px solid #777;
+                padding: 5px 10px;
+                margin: 0 5px;
+                font: bold 1em Arial, Helvetica;
+                text-decoration: none;
+                color: #333;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+            }
+            
+            #trigger-list .trigger:hover
+            {
+                background: #f5f5f5;
+            }
+            
+            /*--------------------------------------*/
+            
+            .centered
+            {
+                text-align: center;
+            }
+            
+            .twitter-follow-button
+            {
+                position: relative;
+                top: 7px;
+            }
+            
+            .inputbutton{
+                
+            width:8.3em;
+            height:2em;
+            margin-left:10em;
+            margin-top:1px;
+            margin-bottom:18px;
+            border:1px solid #19c231;
+            border-radius: 6px;
+            background: url("./img/lyb.png");
+            background-repeat:no-repeat ;
+            font-size:16px;
+            color:#ffffff;
+            }
+            
+            #weather{
+                text-align: center;
+                float:left;
+                margin-top:12px;
+              
+                color:#fff;
+                
+                text-shadow: #000 1px 1px;
+                height:90px;
+                width:290px;
+               
+
+            }
+        
+            #temp{
+                text-shadow: #000 1px 1px;
+                float:left;
+                font-size:58px;
+                margin-left:2px;
+                padding-top:18px;
+             
+             }
+            
+            #tempinfo{
+                text-shadow: #000 1px 1px;
+                float:left;
+                font-size:1.4em;
+                margin-top:1.6em;
+                margin-left:60px;
+                padding-left:1em;
+               
+                text-align: left;
+                
+                
+            }
+            
+            .s_reload{
+            
+                float:right;
+                              
+                
+            }
+
+            .s_menu{
+                
+                float:left;
+               
+            
+   
+                          
+                
+            }
+            .s_title{
+                
+                text-align: center;
+              
+                margin-top:13px;
+                width:12em;
+                font: bold 2em Arial, Helvetica;
+                letter-spacing:0.1em;
+                
+               
+               
+                
+            }
+            
+            #smessage{
+                
+                padding-top:20px;
+                padding-left:3px;
+                text-align: left;
+                font: normal 10px Arial, Helvetica;
+                word-spacing:-4px;
+                
+
+            
+            }
+            #t_tasklist{
+            
+            padding-top:1px;
+            float:left;
+            margin-left:-15px;
+            width:26.7em;
+            
+                        
+            }
+            .label1 {
+                font-size: 12px;
+                font-family: arial, sans-serif;
+                list-style-type: none;
+                color: #fff;
+                text-shadow: #000 1px 1px;
+                padding-top:8px;
+                padding-left:12px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                display: block;
+                border-bottom:1px solid #b4b4b4;
+                font: 18px Arial, Helvetica;
+                width: 17.1em;
+                float:left;   
+                background-image:url("./img/h_tag.png");
+                height:28px;
+            }
+            .item_l{
+            
+            
+                font-family: arial, sans-serif;
+                list-style-type: none;
+                color: #fff;
+                text-shadow: #000 1px 1px;
+                padding-top:7px;
+                padding-left:12px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                display: block;
+                border-bottom:1px solid #b4b4b4;
+                font: 14px Arial, Helvetica;
+                width: 21.6em;
+                float:left;
+                background-image:url("./img/h_tag.png");
+                height:24px;
+
+            
+            
+            }
+            #footer_menu{
+                position:fixed;
+                left: 0px;
+                border-top:1px solid #007410;
+                bottom: 0px;
+                display:block;
+                z-index: 1000;
+                width: 100%;
+                clear:both;
+                text-align: left;
+                _position: absolute;
+                _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
+                background-color: #191919;
+                
+            }
+            
+            .nav_1 {
+                
+                float:left;
+               
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:28px;
+                background-color:#19c231;
+                background-image:url("./img/home_nav.png");
+                height:1.9em;
+                width:4.3em;
+                font-size:12px;
+                                
+            }
+            
+            .nav_2 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+             
+                background-color:#191919;
+                background-image:url("./img/dbn_nav.png");
+                height:49px;
+                width:80px;
+                font-size:12px;
+                border:0px;
+                padding-top:30px;
+                
+            }
+            .nav_3 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+               
+                background-color:#191919;
+                background-image:url("./img/ywcn_nav.png");
+                height:49px;
+                width:80px;
+                font-size:12px;
+                border:0px;
+                padding-top:30px;
+                
+            }
+            .nav_4 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+              
+                background-color:#191919;
+                background-image:url("./img/lzrn_nav.png");
+                height:49px;
+                width:80px;
+                font-size:12px;
+                border:0px;
+                padding-top:30px;
+                
+            }
+
+            
+            .nav_4:hover {
+                -webkit-box-shadow: 0px 0px 2px #000;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#781bb9));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+            }
+            
+            nav_4:active {
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#781bb9), to(#963AD6));
+                background:  -moz-linear-gradient(19% 75% 90deg,#963AD6, #781bb9);
+             }
+
+            </style>
+      
+        <script>
+            
+            $(function() {
+             
+             $("body").css("background-image","url('./img/background_l.png')");
+              
+              
+              var myDate = new Date();
+              
+              var month= myDate .getMonth()+1;
+              
+              var s_date = myDate.getFullYear()+ "年" + month + "月" + myDate.getDate()+"日";
+              
+              //alert(localStorage.j_username);
+              
+             //alert(s_date);
+              
+              $("#smessage").append("<span style='float:left;letter-spacing:1px;word-spacing:-3px;'>" + s_date +"</span> " +"<span style='float:right;'>" + "欢迎"+ localStorage.j_grade + " " +localStorage.j_rusername + "&nbsp;&nbsp;</span>")
+              
+               MyAutoRun();
+               myweather();
+               
+              
+              
+              if(window.screen.height == 568){
+              
+              
+              
+              if(localStorage.j_grade !="管理员" && localStorage.j_grade != "普通农户"){
+              
+              
+              
+              $("#l_button").append("<input id='btn3' class = 'inputbutton' type=button onClick=javascript:window.location.href='./formFill/index.html'; value='发 单'/>");
+              
+              
+              
+              }else{
+              
+    
+              $("#cccccc").append("<div style='width:100px;height:92px;float:left;'> </div>");
+              
+              
+              }
+              
+              $("#bbbbbb").append("<div style='height:26px;'> </div>");
+            
+              $("#cccccc").append("<div style='width:100px;height:22px;float:left;'> </div>");
+              
+              $("#ffffff").append("<div style='height:10px;width:100px;'> </div>");
+              
+              
+              $("#t_tasklist").css("margin-top","10px");
+              
+              
+              }else if(window.screen.height == 480){
+              
+              
+              
+              if(localStorage.j_grade !="管理员" && localStorage.j_grade != "普通农户"){
+              
+              
+              
+              $("#l_button").append("<input id='btn3' class = 'inputbutton' type=button onClick=javascript:window.location.href='./formFill/index.html'; value='发 单'/>");
+              
+               $("#weather").css("margin-bottom","1px");
+               $("#t_tasklist").css("margin-top","-10px");
+              
+               $("#weather").css("margin-top","6px");
+              
+              }else{
+              
+              
+               $("#weather").css("margin-bottom","40px");
+              
+               $("#t_tasklist").css("margin-top","-6px");
+         
+              
+              }
+              
+              
+              
+              
+
+              
+              }
+              
+              
+            
+              
+              
+              });
+            
+            
+            /*
+             var t_url = localStorage.j_url;
+             
+             //document.write("URL<br>" + t_url + "<br>") ;
+             
+             
+             $(function() {
+             
+             $.getJSON(
+             t_url,
+             function(data) {
+             $.each(data, function(i) {
+             $("#weather").append("<h3>UserName:" + data[i].user + "&nbsp; GroupID:" + data
+             [i].GroupID+ "</h3>")
+             });
+             });
+             
+             });
+             */
+            
+            
+            function reload(){
+                window.location.reload();
+            }
+            
+            function gowilldo(){
+                
+                //alert("gowilldo");
+                console.log(">>>>>gowilldo");
+            
+                //alert(localStorage.j_grade);
+                if(localStorage.j_grade == "中心户"){
+                    
+                     window.location.href="./willdo/index_z.html";
+                    
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                    window.location.href="./willdo/index_ad.html";
+                    
+                }else{
+ 
+                    window.location.href="./willdo/index.html";
+                }
+
+            }
+            function gofinished(){
+ 
+                
+                //alert("gofinished");
+                
+                if(localStorage.j_grade == "中心户"){
+                    
+                    window.location.href="./finished/index_z.html";
+                    
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                    window.location.href="./finished/index_ad.html";
+                    
+                }else{
+                    
+                    window.location.href="./finished/index.html";
+                }
+            }
+
+            function gocontact(){
+                
+                //alert("gocontact");
+                
+                 window.location.href="./contact/index.html";
+
+            }
+
+          
+            function myweather () {
+                
+                var jcontact = "http://www.weather.com.cn/data/cityinfo/101200901.html";
+                
+                $.getJSON(
+                          jcontact,
+                          function(data) {
+                          $.each(data, function(i) {
+                                 
+                                 
+                                 $("#weather").append("<span id='temp' >&nbsp;" + data
+                                                      [i].temp1+ "<br>"+ "</span><span id='tempinfo'>今日天气<br>城市:" + data[i].city + "<br>天气:"+ data
+                                                      [i].weather + "<br>"+ "</span>")
+                                 
+                                 /*$("#weather").append("<span>&nbsp;&nbsp;城市:" + data[i].city + "<br>&nbsp; 温度:" + data
+                                  [i].temp1+ "&nbsp; ～:"+ data
+                                  [i].temp2 +  "<br>&nbsp; weather:"+ data
+                                  [i].weather + "&nbsp;<br>  <img  style='width:3.5em;height:3em;padding:3px;' src='http://www.weather.com.cn/m2/i/icon_weather/29x20/"+ data
+                                  [i].img1 + "'/>" + "<img   style='width:3.5em;height:3em;padding:3px;' src='http://www.weather.com.cn/m2/i/icon_weather/29x20/"+ data
+                                  [i].img2 + "'/>" + "</span>")
+                                  
+                                  */
+                                 });
+                          });
+                
+                
+                
+                
+            };
+            
+            
+            function exit(){
+                localStorage.clear();
+                window.location.href="./index.html";
+                
+                //alert(localStorage.j_username);
+                
+            }
+            
+            function MyAutoRun()
+            　　{
+                var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farmcount=" + localStorage.j_username;
+                
+                //alert(jcontact);
+                
+                $.getJSON(
+                          jcontact,
+                          function(data) {
+                          
+                          var str = "";
+                          str += "<div>";
+                          
+                          $.each(data, function(i) {
+                                 
+                                 //alert(data[i].FarmerName);
+                                str += "<span class='item_l' style='border-left:5px solid "+ data[i].color +";'>"+ data[i].finish + "<span style='float:right;'><span style=' font-size:18px;color:"+data[i].color+ ";'>" + data[i].farmcount+ "</span>&nbsp;&nbsp;笔&nbsp;&nbsp;&nbsp;</span><br></span>";
+                                 
+                                 
+                                 
+                                 });
+                          
+                          str += "</div>";
+                          
+                          
+                          $("#t_tasklist").append(str);
+                          
+                          
+                          });
+                
+                
+                
+                
+                
+                
+            }
+            
+            </script>
+        
+        
+
+
+        <div class="f_content">
+        
+           
+            
+            <div class="s_title">
+                
+                <div class="s_menu">
+                <input onclick="exit()"  type = "image" src="./img/s_menu.png" width="30px;" height="30px;"/>
+                </div>
+                <span style="font-size:24px;">农事通</span>
+                <div class="s_reload">
+                <input onclick="reload()"  type = "image" src="./img/s_reload.png" width="30px" height="30px"/>
+                  </div>
+                    <div id="smessage">
+                 
+                    </div>
+        
+              </div>
+     
+            <div id="bbbbbb" >
+                
+            </div>
+            
+            
+        <div id="weather" >
+         
+        </div>
+        
+        <div id="cccccc" >
+            
+        </div>
+        
+<div id="l_button" >
+    
+</div>
+       
+       <div id="ffffff" >
+           
+       </div>
+       
+        <div id = "t_tasklist" >
+        
+           <label class="label1">本组(人)农事活动统计</lable>
+               
+
+        </div>
+        
+      <script type="text/javascript">
+            app.initialize();
+          
+         
+            // Wait for PhoneGap to load
+            //
+            //document.addEventListener("deviceready", onDeviceReady, false);
+            
+            // PhoneGap is ready
+            //
+            //function onDeviceReady() {
+              //  var element = document.getElementById('deviceProperties');
+                
+                //element.innerHTML = 'Device Name: '     + device.name     + '<br />' +
+                //'Device PhoneGap: ' + device.phonegap + '<br />' +
+                //'Device Platform: ' + device.platform + '<br />' +
+                //'Device UUID: '     + device.uuid     + '<br />' +
+                //'Device Version: '  + device.version  + '<br />';
+            //}
+        </script>
+        
+        
+        <DIV id="footer_menu">
+            
+          
+            <div class='nav_1'>首页</div><input type= button onclick="gowilldo();" class='nav_2'  value='待办'>
+            <input type=button  onclick="gofinished();"  class='nav_3' value="已完成"><input class='nav_4'  type=button onclick="gocontact();" value="联系人">        </DIV>
+            
+
+    </body>
+</html>

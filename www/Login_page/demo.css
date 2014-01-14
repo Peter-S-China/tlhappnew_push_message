@@ -1,0 +1,120 @@
+* { 
+	margin:0; padding:0; 
+}
+			
+body { 
+
+	font-family: Lucida Sans Unicode, Arial, Helvetica;
+	background-color: #fff;
+	text-align: center;
+	color: #000;
+	
+    
+}
+
+#container {
+	display: block;
+	
+    margin-left:0.2em;
+    margin-right:0.5em;
+
+
+
+
+}
+	
+	.login {
+		display: block;
+		padding: 0px 0 0 0;
+		width: 22em;
+		height: 30em;
+		background: url('images/design_05.png') top left no-repeat;
+		position: relative;
+	    
+	}
+		
+		.form-title {
+			margin-top: 1em;
+		}
+		
+		.shield {
+			display: block;
+			margin-left: 4em;
+		    padding-top:6em;
+			width: 203px;
+			
+		}
+		
+		.form-box-top {
+			width: 203px;
+			height: 9px;
+			display: block;
+			margin-top: 1em;
+			background: url('images/design_12.png') top left no-repeat;
+		}
+		
+		.form-box-content {
+			width: 203px;
+			display: block;
+			padding: 1em 0 1em 0;
+			background: url('images/design_15.png') top left repeat-y;
+		}	
+			
+			.the-username {
+				display: block;
+				margin-bottom: 1em;
+				margin-left: auto;
+				margin-right: auto;
+				width: 90px;
+				padding: 5px;
+				cursor: pointer;
+			}
+				
+				.the-username-focus {
+					background: #d4d4d4;
+					border: 1px solid #ccc;
+					-webkit-border-radius: 5px;
+					-moz-border-radius: 5px;
+				}
+			
+			.the-password {
+				font-size: 80%;
+				display: none;
+			}
+			
+				input {
+					font-size: 100%;
+				}
+				
+				.field-password-loading {
+					border: 1px solid #ccc;
+					background: #fff url('images/loading.jpg') no-repeat;
+					background-position-x: -90px;
+				}
+		
+		.form-box-bottom {
+			width: 203px;
+			height: 13px;
+			display: block;
+			background: url('images/design_17.png') top left no-repeat;
+		}
+	
+	.back {
+		display: block;
+		width: 203px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1em;
+		padding-left: 3em;
+	}
+		
+		.back p {
+			float: left;
+			margin-right: 2em;
+		}
+		
+	a, a:visited {
+		font-size: 80%;
+		color: #000;
+		text-decoration: none;
+	}

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="../cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/jquery_last_mini.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+        
+        <title>Viewdetail</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#F0F0F0;
+            
+                
+                
+            }
+            .s_content{
+            
+            
+            }
+
+            #footer_menu{
+                position:fixed;
+                bottom:0px;
+                left: 0px;
+                border-top:1px solid #007410;
+                z-index: 1000;
+                width: 100%;
+                clear:both;
+                text-align:left;
+             
+                overflow:visible;
+                background-color: #191919;
+                
+            }
+            .nav_1 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:28px;
+                background-color:#191919;
+                background-image:url("../img/homepage_n.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            
+            .nav_2 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:28px;
+                background-color:#191919;
+                background-image:url("../img/dbn_nav.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            .nav_3 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:24px;
+                background-color:#19c231;
+                
+                background-image:url("../img/ywc_y.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            .nav_4 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:24px;
+                background-color:#191919;
+                background-image:url("../img/lzrn_nav.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            
+           .top_menu {
+               
+               right:0;
+               top:0;
+               width:100%;
+               position:fixed;
+               height:50px;
+               background-image:url("../img/top_bg.png");
+               padding-top:5px;
+              
+                
+                
+            
+            }
+            .t_title{
+            
+                text-align:left;
+                color:#fff;
+                font: normal 24px Arial, Helvetica;
+                margin-top:16px;
+                margin-right:0px;
+                
+                width:196px;
+                float:right;
+                
+            
+            
+            }
+            
+            
+            .searbox {
+                -webkit-transition-property: -webkit-box-shadow, background;
+                -webkit-transition-duration: 0.25s;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#fff));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+             
+                border:1px solid #ccc;
+                margin-top:10px;
+                margin-bottom:10px;
+                margin-left:12px;
+                
+             
+                font-size:12px;
+                padding-left:20px;
+                color:#000;
+                background-image:url("../img/zoom.png");
+                background-repeat:no-repeat;
+                background-color:#FFF;
+                
+                
+           }
+            
+            
+            .backbutton{
+                float:left;
+                border:0;
+                background-image:url("");
+                width: 1.5em;
+                height:2em;
+                
+                margin-top:18px;
+                
+                margin-left:22px;
+                background-repeat: repeat-y;
+            }
+
+            #info_list{
+            
+                width:320px;
+                background-image:url("../img/orderbg.png");
+                margin-top:30px;
+        
+                
+                padding-top:20px;
+                background-repeat:repeat;
+               
+            
+            }
+        .item_s{
+            
+            font: normal 18px Arial, Helvetica;
+                        
+            width: 280px;
+            border-bottom:1px solid #c0c0c0;
+            text-align: left;
+            margin-left:20px;
+            margin-top:20px;
+        
+         }
+        
+            .item_nb{
+                
+                font: normal 18px Arial, Helvetica;
+                
+                width: 280px;
+                border-bottom:1px solid #c0c0c0;
+                text-align: left;
+                margin-left:20px;
+                margin-top:20px;
+                height:40px;
+                padding:2px;
+                
+            }
+            
+            
+            .item_n{
+                
+                text-align: right;
+                width:220px;
+                
+                display:block;
+                float:right;
+                
+                
+                
+            }
+            
+            .item_r{
+            text-align: right;
+            float:right;
+            width:200px;
+            display:block;
+            }
+
+      
+            </style>
+    </head>
+    <body>
+        
+         <div class="top_menu">
+         
+             <input type=image src="../img/back.png" class="backbutton"  onclick="javascript:history.go(-1);">
+          
+                 <div class="t_title">
+                     已完成
+                 </div>
+          </div>
+        <div id="info_list">
+      
+        </div>
+        <div style="margin-left:1px;width:320px;background-image:url('../img/b_bottom.png'); height:25px; background-repeat:no-repeat;">&nbsp;</div>
+        <script>
+            //alert(localStorage.j_username);
+            // = "http://10.0.0.61:8015/Pages/Json.aspx?userid="+ localStorage.j_username +"";
+            
+                      
+           //var jcontact ="http://10.0.0.61:8015/Pages/Json.aspx?userids=1000";
+           
+           var v_groupinfo;
+            
+            $(function() {
+             
+              var url = location.href;
+            
+              //alert(url);
+              var strs;
+             
+              
+              strs=url.split("?");
+              
+              //alert(strs[1]);
+              
+              var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?" + strs[1];
+              
+              //var contact = "http://10.0.0.61:8015/Pages/Json.aspx?SignfarmID=25&farm_state=2";
+
+              
+              var vts ="";
+              
+              vts += "<div class=item_s>";
+              
+              $.getJSON(
+                        jcontact,
+                        function(data) {
+                        $.each(data, function(i) {
+                               
+      
+                               vts += "<lable>地块:</lable><span class=item_r> "+data[i].LandName + "</span></div>" + "<div class=item_s><lable>农户:</lable><span class=item_r>" + data[i].farmername + "</span></div>" + "<div class=item_s><lable>农事:</lable><span class=item_r>" + data[i].fct_farmname + "</span></div>" + "<div class='item_nb'> <lable>农资:</lable><span class=item_n>" + data[i].MaterialIDs + "</span></div>" + "<div class=item_s><lable>截止日:</lable><span class=item_r>" + data[i].Farm_endtime + "</span></div>"; 
+                               
+                    
+                               
+                                   vts +="<div class=item_s><img onerror='showerrimg(this);' width='280'src='" + data[i].pic_route + " '/>";
+                               
+                            
+                               
+                               
+                               });
+                        
+                   vts += "</div>";
+                
+                  $("#info_list").append(vts);
+              
+              
+                        });
+              
+              mynav();
+              });
+            
+            
+            function showerrimg(obj){
+                
+                var errorimg = "../img/zwt.png";//替换图片地址
+                obj.src = errorimg;
+            
+            }
+            
+            
+            function mynav(){
+                
+                
+                if(localStorage.j_grade == "中心户"){
+                    
+                    $("#footer_menu").append("<a href='../main.html'><div class='nav_1'>首页</div></a><a href='../willdo/index_z.html'><div class='nav_2'>待办</div></a><div class='nav_3'>已完成</div><a href='../contact/index.html'><div class='nav_4'>联系人</div></a>");
+                    
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                    $("#footer_menu").append("<a href='../main.html'><div class='main.html'>首页</div></a><a href='../willdo/index_ad.html'><div class='nav_2'>待办</div><div class='nav_3'>已完成</div><a href='../contact/index.html'><div class='nav_4'>联系人</div></a>");
+                    
+                }else{
+                    $("#footer_menu").append("<a href='../main.html'><div class='nav_1'>首页</div></a><a href='../willdo/index.html'><div class='nav_2'>待办</div></a><div class='nav_3'>已完成</div><a href='../contact/index.html'><div class='nav_4'>联系人</div></a>");
+                    
+                }
+            }
+
+            </script>
+        
+        <DIV style="height:4em;">
+        </DIV>
+        
+
+        
+        
+    </body>
+</html>

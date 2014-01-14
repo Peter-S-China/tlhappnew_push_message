@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Tabs</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js "></script>
+    <script src="js/organictabs.jquery.js"></script>
+    <script>
+        $(function() {
+    
+            $("#example-one").organicTabs();
+            
+            $("#example-two").organicTabs({
+                "speed": 200
+            });
+    
+        });
+    </script>
+</head>
+<style>
+    #footer_menu{
+        position:fixed;
+        left: 0px;
+        right:0;
+        bottom: 0px;
+        border-top:1px solid #007410;
+        z-index: 1000;
+        width: 100%;
+        text-align: left;
+        background-color: #191919;
+        display:block;
+        
+        
+    }
+    .nav_1 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        
+        background-color:#191919;
+        background-image:url("../img/homepage_n.png");
+        height:49px;
+        width:80px;
+        font-size:12px;
+        border:0px;
+        padding-top:30px;
+        
+    }
+    
+    .nav_2 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        padding-top:32px;
+        padding-left:28px;
+        background-color:#19c231;
+        background-image:url("../img/dby_nav.png");
+        height:1.9em;
+        width:4.3em;
+        font-size:12px;
+        
+    }
+    .nav_3 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        
+        background-color:#191919;
+        
+        background-image:url("../img/ywcn_nav.png");
+        height:49px;
+        width:80px;
+        font-size:12px;
+        border:0px;
+        padding-top:30px;
+        
+    }
+    .nav_4 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        
+        background-color:#191919;
+        background-image:url("../img/lzrn_nav.png");
+        height:49px;
+        width:80px;
+        font-size:12px;
+        border:0px;
+        padding-top:30px;
+    }
+    
+    .top_menu{
+     
+        right:0;
+        top:0;
+        width:100%;
+        position:fixed;
+        z-index:999;
+        background:#0096ff;;
+    }
+    .t_title{
+        
+        text-align:right;
+        color:#fff;
+        font: normal 24px Arial, Helvetica;
+        margin-top:18px;
+   
+         width:200px;
+         float:left;
+        
+        
+    }
+    .t_reload{
+        float:right;
+        text-align:right;
+        padding-right:10px;
+        
+        padding-top:6px;
+        
+  
+       
+    }
+ 
+    </style>
+    <script>
+        function gohome(){
+            
+            //alert("gowilldo");
+            
+            //alert(localStorage.j_grade);
+            
+            
+            window.location.href="../main.html";
+            
+            
+        }
+        function gofinished(){
+            
+            
+            //alert("gofinished");
+            
+            if(localStorage.j_grade == "中心户"){
+                
+                window.location.href="../finished/index_z.html";
+                
+            }else if(localStorage.j_grade == "管理员"){
+                
+                window.location.href="../finished/index_ad.html";
+                
+            }else{
+                
+                window.location.href="../finished/index.html";
+            }
+        }
+        
+        function gocontact(){
+            
+            //alert("gocontact");
+            
+            window.location.href="../contact/index.html";
+            
+        }
+        
+
+        
+        function reload(){
+            window.location.reload();
+        }
+        
+        function getinfolist(){
+           
+        
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm=1000&farm_type=1";
+            
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                              $("#core2").append("<li style='margin-bottom:2px;border-top:1px solid "+ data[i].color +";border-right:1px solid "+ data[i].color+";border-bottom:1px solid "+data[i].color+";border-left:5px solid "+ data[i].color+"'><a href='#'><span style='float:left;font-size:16px;height:20px;width:200px;'>" + data[i].LandName + "</span><span style='padding:2px;font-size:26px;' > " + data[i].fcd_Farmname +"</span><span style='margin-left:2px;float:left;font-size:12px;border-bottom:1px solid #ccc;display:block;'>截止日:"+ data[i].Farm_endtime + "</span></a></li>")
+                             });
+                      });
+
+ 
+        }
+    </script>
+    
+<body>
+	<div id="page-wrap">
+	     <div id="example-two">
+             
+             
+             <div class="top_menu">
+                 
+                 
+                 <div class="t_title">
+                     审核农事
+                     </div>
+             
+                 
+             <ul class="nav" >
+                 
+               
+             <!--   <li class="nav-two"><a onclick="getinfolist();"  href="#core2">审核中</a></li>-->
+             
+            </ul>
+             </div>
+    		
+    		<div class="list-wrap" style="margin-top:-20px;" >
+    		
+    			<ul id="featured2">
+    	
+                    <script>
+                        
+                        //var jcontact = "http://www.weather.com.cn/data/cityinfo/101010100.html";
+                        
+                        var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_groupID="+ localStorage.j_username +"&farm_type=3";
+                        
+                        
+                        $(function() {
+                          $.getJSON(
+                                    jcontact,
+                                    function(data) {
+                                    $.each(data, function(i) {
+                                           $("#featured2").append("<li style='margin-bottom:2px;border-top:1px solid "+ data[i].color +";border-right:1px solid "+ data[i].color+";border-bottom:1px solid "+data[i].color+";border-left:5px solid "+ data[i].color+"'><a href='../detail/reviewdetail.html?SignfarmID="+ data[i].fid+"&farm_state="+data[i].Farmstate+"'><span style='float:left;font-size:16px;height:20px;width:200px;'>" + data[i].LandName + "</span><span style='padding:2px;font-size:18px;' > " + data[i].fcd_Farmname +"</span><span style='margin-left:2px;float:left;font-size:12px;display:block;'>截止日:"+ data[i].Farm_endtime + "</span></a></li>")
+                                           });
+                                    });
+                          });
+                        
+                        
+                        </script>
+    			</ul>
+        		 
+        		 <ul id="core2" class="hide">
+                  
+                     
+                 </ul>
+                
+        	
+        		 
+    		 </div> <!-- END List Wrap -->
+		 
+		 </div> <!-- END Organic Tabs (Example One) -->
+	
+		
+	</div>
+	
+    <div style="height:100px;display:block;">&nbsp;&nbsp;&nbsp;&nbsp;
+        
+    </div>
+
+    <DIV id="footer_menu">
+   
+        
+        <input type=button   onclick="gohome();" class='nav_1' value="首页"> <div class='nav_2'>待办</div> <input type=button  onclick="gofinished();"  class='nav_3' value="已完成"><input class='nav_4'  type=button onclick="gocontact();" value="联系人">
+
+    </DIV>
+    
+    
+</body>
+
+</html>

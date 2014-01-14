@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/jquery_last_mini.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+        
+        <title>HomePage</title>
+        <style type="text/css">
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#E4E4E4;
+                background:url("./img/background_l.png");
+                background-repeat:repeat ;
+                background-position: top left;
+               
+            }
+            
+            .slogan{
+                font: normal 2em Arial, Helvetica;
+                letter-spacing:0.1em;
+                color:#e4e4e4;
+                float:left;
+                width:310px;
+                text-align: right;
+                margin-bottom:3.8em;
+                
+            
+            }
+            form {
+                width: 26.7em;
+                margin-top:8.5em;
+              
+            }
+            
+            .label1 {
+                font-size: 12px;
+                font-family: arial, sans-serif;
+                list-style-type: none;
+                color: #fff;
+                text-shadow: #000 1px 1px;
+                margin-bottom: 3px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                display: block;
+      
+                width: 26.7em;
+                float:left;
+                background-image:url("./img/usn.png");
+                height:3.3em;
+            }
+            .label2 {
+                font-size: 12px;
+                font-family: arial, sans-serif;
+                list-style-type: none;
+                color: #fff;
+                text-shadow: #000 1px 1px;
+                margin-bottom: 3px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                display: block;
+            
+                width: 26.7em;
+                float:left;
+                background-image:url("./img/pwd.png");
+                height:3.3em;
+            }
+            
+            .label3 {
+                font-size: 12px;
+                font-family: arial, sans-serif;
+                list-style-type: none;
+                color:#333;
+               
+                margin-top:80px;
+                margin-left:5px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                display: block;
+             
+                width:56px;
+                float:left;
+                padding:3px;
+                
+            }
+            
+
+            
+            
+            input {
+                -webkit-transition-property: -webkit-box-shadow, background;
+                -webkit-transition-duration: 0.25s;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#781bb9));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+                float:right;
+                
+             
+                border:0px;
+               
+                width: 20em;
+                height:3.1em;
+                font-size:12px;
+                color:#000;
+                
+             }
+            
+            input.submit {
+                -webkit-transition-property: -webkit-box-shadow, background;
+                -webkit-transition-duration: 0.25s;
+                width: 22.9em;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#781bb9));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+                color: #fff;
+                text-transform: uppercase;
+                text-shadow: #000 1px 1px;
+                border: 1px solid #19c231;
+                margin-top:2px;
+                background-image:url("./img/green_b.png");
+                height:3em;
+                font-size:14px;
+                
+            }
+            
+            input.submit:hover {
+                -webkit-box-shadow: 0px 0px 2px #000;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#781bb9));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+            } 
+            
+            input.submit:active {
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#781bb9), to(#963AD6));
+                background:  -moz-linear-gradient(19% 75% 90deg,#963AD6, #781bb9);
+            }
+            
+            input:hover {
+                -webkit-box-shadow: 0px 0px 4px #000;
+                background: #19c231;
+            }
+            
+            .n_content{
+              
+                float:right;
+         
+                padding:5px;
+               
+                width:180px;
+                height:80px;
+                background: #fff;
+                margin-right:60px;
+            
+                border-radius:5px;
+            }
+            .close{
+                
+                float:right;
+                clear:both;
+                width:100%;
+                text-align:right;
+                margin:0 0 6px 0;
+                color:#0096ff;
+                font-size:12px;
+            }
+            </style>
+    </head>
+    <body onLoad="MyAutoRun();">
+        
+        <label class="slogan">欢迎使用<br>农事通</label>
+        
+            <form id="myform" method="post" onsubmit="return checkform()">
+            
+           <label class="label1">	<input style="background:rgba(255, 255, 253, 0.1) none repeat scroll 0 0 !important;" type="number" name="username" id="username1" required=""  value="" placeholder="用户名" /></label>
+		
+                <label class="label2"><input style="background:rgba(255, 255, 253, 0.1) none repeat scroll 0 0 !important;" type="password" name="password" id="password1"  placeholder="密码" required=""/></label>
+                
+              
+                
+              
+                
+                <div id="notice" class="n_content">
+                     <div class="close"><a href="javascript:void(0)" onclick="hide()">X</a></div>
+                    <div class="con" id="n_contice">
+                        
+                    </div>
+                    
+                </div>
+           <a  onclick='loadNotice()' href='javascript:void(0);'><label class="label3">忘记密码</label></a>
+                
+                <input type="submit" value="登录" name="submit" class="submit"  />
+        </form>
+        
+        <script type="text/javascript">
+            
+            function loadNotice(){
+            
+            
+              $("#notice").show(200);
+                
+              $("#n_info").remove();
+                
+               var jcontact= "http://10.0.0.61:8015/Pages/Json.aspx?backpwd=11";
+                
+                var str ="<div id='n_info' style='padding:8px;color:#333;'>请点击电话号码,联系管理员";
+                $.getJSON(
+                          jcontact,
+                          function(data) {
+                          $.each(data, function(i) {
+                                
+                                 str +=  "<br>管理员:" + data[i].FarmerName;
+                                 str +=  "<br>电话:<a target='_self' href='tel:"+ data[i].PhoneNumber +"'>" + data[i].PhoneNumber +"</a>";
+                                 
+                                 
+                                 });
+                          
+                          str += "</div>";
+                          
+                          $("#n_contice").append(str);
+                          
+                          });
+                
+            }
+            
+            function hide(){
+            
+             $("#notice").hide(100);
+            
+            }
+            
+            
+            function MyAutoRun()
+            　　{
+                
+                
+                $("#notice").hide(10);
+                
+                //alert(localStorage.j_username);
+                
+                if(localStorage.j_username != null){
+                
+                  window.location.href="./PAP.html";
+                 }
+                
+            
+                var networkState = navigator.connection.type;
+                
+                var states = {};
+                states[Connection.UNKNOWN]  = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI]     = 'WiFi connection';
+                states[Connection.CELL_2G]  = 'Cell 2G connection';
+                states[Connection.CELL_3G]  = 'Cell 3G connection';
+                states[Connection.CELL_4G]  = 'Cell 4G connection';
+                states[Connection.NONE]     = 'No network connection';
+                
+                alert('Connection type: ' + states[networkState]);
+
+                
+                
+               }
+    
+    
+            function checkform(){
+               
+                var t_username = document.getElementById("username1").value;
+                var t_password = document.getElementById("password1").value;
+
+                                                
+                //alert(t_username);
+                //alert(t_password);
+                
+                //var t_url = "http://218.246.35.203/Pages/Json.aspx?logid="+ t_username +"&logpwd="+ t_password+"";
+
+                var t_url = "http://10.0.0.61:8015/Pages/Json.aspx?logid="+ t_username +"&logpwd="+ t_password+"";
+
+                //alert(t_url);
+                
+                localStorage.j_url = t_url;
+                
+                localStorage.j_password = t_password;
+                localStorage.j_username = t_username;
+                
+
+               document.getElementById("myform").action = "./PAP.html";
+               document.getElementById("myform").submit();
+            
+            
+            }
+            app.initialize();
+            
+         
+            // Wait for PhoneGap to load
+            //
+            //document.addEventListener("deviceready", onDeviceReady, false);
+            
+            // PhoneGap is ready
+            //
+            //function onDeviceReady() {
+              //  var element = document.getElementById('deviceProperties');
+                
+                //element.innerHTML = 'Device Name: '     + device.name     + '<br />' +
+                //'Device PhoneGap: ' + device.phonegap + '<br />' +
+                //'Device Platform: ' + device.platform + '<br />' +
+                //'Device UUID: '     + device.uuid     + '<br />' +
+                //'Device Version: '  + device.version  + '<br />';
+            //}
+        </script>
+        
+       
+
+     
+        <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            
+            // Wait for Cordova to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            // Cordova is ready
+            //
+            function onDeviceReady() {
+                // Empty
+                //showAlert();
+                
+                
+                //console.log("?????");
+                //console.log(">>>>>>>" + device.token);
+                
+                
+                
+                var pushNotification = window.plugins.pushNotification;
+                pushNotification.registerDevice({alert:true, badge:true, sound:true}, function(status) {
+                                    console.log("deviceToken:>>>>>>>" + status.deviceToken);
+                                    app.myLog.value +=JSON.stringify(['registerDevice status: ', status])+"\n";
+                                    app.storeToken(status.deviceToken);
+                                                
+                                                });
+            }
+            
+            // alert dialog dismissed
+            function alertDismissed() {
+                // do something
+            }
+            
+            // Show a custom alertDismissed
+            //
+            function showAlert() {
+                
+                var networkState = navigator.connection.type;
+                
+                var states = {};
+                states[Connection.UNKNOWN]  = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI]     = 'WiFi connection';
+                states[Connection.CELL_2G]  = 'Cell 2G connection';
+                states[Connection.CELL_3G]  = 'Cell 3G connection';
+                states[Connection.CELL_4G]  = 'Cell 4G connection';
+                states[Connection.NONE]     = 'No network connection';
+                
+                navigator.notification.alert('Connection type: ' + states[networkState]);
+            }
+        
+    
+        
+            </script>
+
+    </body>
+</html>

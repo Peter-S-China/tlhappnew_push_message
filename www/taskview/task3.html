@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
+        <title>getJSON</title>
+        
+    </head>
+    <style>
+        
+        ul{width:200px;}
+        li:hover{background:#FFFFE0}
+        li{list-style-type:none; cursor:pointer; -moz-border-radius:0 10px 0 10px; border:1px solid #666666; margin:2px; padding:5px 5px 5px 5px;}
+        ul div{color: #666666; cursor: auto; display: none; font-size: 13px; padding: 5px 0 5px 10px; text-decoration: none; }
+        ul div a{color:#000000; font-weight:bold;}
+        li div:hover{text-decoration:none !important;}
+        li:before {content: ""; padding:10px 10px 10px 0; color:red; font-weight:bold;}
+        li.active:before {content: ""; padding:10px 10px 10px 0; color:red; font-weight:bold;}
+        #toggle{width:210px;}
+        </style>
+    
+    
+    
+    <body>
+        
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        
+        <div>
+            <ul id="weather"></ul>
+        </div>
+        
+        <script>
+            
+            function reload(){
+                window.location.reload();
+            }
+ 
+            
+            $(function() {
+              
+              //alert(localStorage.j_username);
+              
+              var t_user = localStorage.j_username;
+              
+              var t_jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm=" +t_user+ "&farm_type=3";
+              
+              //alert(t_jcontact);
+              
+              
+              $.getJSON(
+                        t_jcontact,
+                        function(data) {
+                        $.each(data, function(i) {
+                               
+                               //alert(data[i].FarmerName);
+                               $("#weather").append("<li>name:" + data[i].farmername + "&nbsp;Farmname:" + data
+                                                    [i].fcd_Farmname+ "</li>")
+                               });
+                        });
+              });
+            
+            
+            </script>
+        
+        
+        <DIV STYLE="  position: fixed;
+            left: 0px;
+            bottom: 0px;
+            z-index: 1000;
+            width: 100%;
+            overflow: visible;
+            text-align: center;
+            _position: absolute;
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);
+            background-color: #eaaf51;">
+            
+            <span style="padding:5px;float:left;"><input onClick="javascript:window.location.href='../main.html';" style="text-align: center;" type = "image" src="../img/home-icon.png" width="30px;"/></span>
+            <span style="padding:5px;float:right;"><a href="../index.html" class="trigger warning-trigger">退出登录</a></span>
+            <span style="padding:5px;float:right;"><input onclick="reload()" style="text-align: center;" type = "image" src="../img/refresh.png" width="15px;"/></span>
+            
+            
+        </DIV>
+        
+    </body>
+</html>

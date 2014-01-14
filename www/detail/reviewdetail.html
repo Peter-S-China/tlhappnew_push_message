@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/jquery_last_mini.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+        
+        <title>Viewdetail</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#F0F0F0;
+            
+                
+                
+            }
+            .s_content{
+            
+            
+            }
+
+            #footer_menu{
+                position:fixed;
+                bottom:-5px;
+                left: 0px;
+                border-top:1px solid #007410;
+                z-index: 1000;
+                width: 100%;
+                clear:both;
+                text-align:left;
+             
+                overflow:visible;
+                background-color: #191919;
+                
+            }
+            .nav_1 {
+                
+                float:left;
+                
+                
+            }
+            
+            .nav_2 {
+                
+                float:left;
+                               
+            }
+           
+            
+            #top_menu {
+               
+                right:0;
+                top:0;
+                width:100%;
+                position:fixed;
+                height:45px;
+                background-image:url("../img/top_bg.png");
+              
+                color:#fff;
+                padding:10px;
+                
+                
+            
+            }
+            .t_title{
+            
+                text-align:left;
+                color:#fff;
+                font: normal 24px Arial, Helvetica;
+                margin-top:16px;
+                margin-right:0px;
+                
+                width:170px;
+                float:right;
+    
+               
+            
+            
+            }
+            
+            
+            .searbox {
+                -webkit-transition-property: -webkit-box-shadow, background;
+                -webkit-transition-duration: 0.25s;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#fff));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+             
+                border:1px solid #ccc;
+                margin-top:10px;
+                margin-bottom:10px;
+                margin-left:12px;
+                
+             
+                font-size:12px;
+                padding-left:20px;
+                color:#000;
+                background-image:url("../img/zoom.png");
+                background-repeat:no-repeat;
+                background-color:#FFF;
+                
+                
+           }
+            
+            
+            .backbutton{
+                
+                border:0;
+                background-image:url("");
+                width: 1.5em;
+                height:2em;
+                
+                margin-top:18px;
+                
+                margin-left:22px;
+                background-repeat: repeat-y;
+            }
+
+            #info_list{
+            
+                width:320px;
+                background-image:url("../img/orderbg.png");
+                margin-top:40px;
+        
+                
+                padding-top:20px;
+                background-repeat:repeat;
+               
+            
+            }
+        .item_s{
+            
+            font: normal 18px Arial, Helvetica;
+                        
+            width: 280px;
+            border-bottom:1px solid #c0c0c0;
+            text-align: left;
+            margin-left:20px;
+            margin-top:20px;
+         
+         
+          
+            
+        
+           }
+            .item_r{
+            
+            
+            text-align: right;
+                float:right;
+            
+            }
+            
+            .item_nb{
+                
+                font: normal 18px Arial, Helvetica;
+                
+                width: 280px;
+                border-bottom:1px solid #c0c0c0;
+                text-align: left;
+                margin-left:20px;
+                margin-top:20px;
+                height:40px;
+                padding:2px;
+                
+            }
+            
+            
+            .item_n{
+                
+                text-align: right;
+                width:220px;
+                
+                display:block;
+                float:right;
+                
+                
+                
+            }
+            
+            
+            
+            #rinfo{
+            
+           
+            
+            }
+
+            
+            
+            
+            .black_overlay {
+                display: none;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 100%;
+                height: 150%;
+                background-color:#000;
+                z-index:9998;
+                -moz-opacity: 0.8;
+                opacity:.80;
+                filter: alpha(opacity=80);
+            }
+            .white_content {
+                display: none;
+                position: absolute;
+                top: 60%;
+                left: 0;
+                width: 318px;
+                height: 40%;
+                background-color:#000;
+                border: 1px solid #e4e4e4;
+                z-index:9999;
+                color:#fff;
+            }
+            .close {
+                float:right;
+                clear:both;
+                width:100%;
+                text-align:right;
+                margin:0 0 6px 0;
+                color:#fff;
+                font-size:21px;
+                
+            }
+            .close a {
+                color:#333;
+                text-decoration:none;
+                font-size:21px;
+                
+                color:#fff;
+            }
+            .con {
+                text-indent:1.5pc;
+                line-height:21px;
+            }
+            
+
+            </style>
+    </head>
+    <body>
+        
+     
+        
+         <div id ="top_menu">
+             
+           
+         
+             <input type=image src="../img/back.png" class="backbutton" onclick="goback();">
+        
+          
+                 <div class="t_title">
+                     审核
+                 </div>
+         </div>
+        <div id="info_list">
+      
+        </div>
+        <div style="margin-left:1px;width:320px;background-image:url('../img/b_bottom.png'); height:25px; background-repeat:no-repeat;">&nbsp;</div>
+        <script>
+            //alert(localStorage.j_username);
+            // = "http://10.0.0.61:8015/Pages/Json.aspx?userid="+ localStorage.j_username +"";
+            
+                      
+           //var jcontact ="http://10.0.0.61:8015/Pages/Json.aspx?userids=1000";
+           
+           var v_groupinfo;
+            
+            $(function() {
+             
+              var url = location.href;
+         
+              var strs;
+              
+              strs=url.split("?");
+              
+              //alert(strs[1]);
+              
+              var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?" + strs[1];
+              
+              //alert(jcontact);
+              var sb1 = strs[1].split("&");
+              
+              var sfid=sb1[0].replace("SignfarmID=","");
+              
+              localStorage.j_fid=sfid;
+              
+              $.getJSON(
+                        jcontact,
+                        function(data) {
+                        $.each(data, function(i) {
+                               
+ 
+                               
+                               $("#info_list").append("<div class=item_s><lable>地块:</lable><span class=item_r>" + data[i].LandName + "</span></div>" +  "<div class=item_s><lable>农户:</lable><span class=item_r>" + data[i].farmername + "</span></div>"+ "<div class=item_s><lable>农事:</lable><span class=item_r>" + data[i].fct_farmname + "</span></div>" +"<div class=item_nb> <lable>农资:</lable><span class=item_n>" + data[i].MaterialIDs + "</span></div>" + "<div class=item_s><lable>截止日:</lable><span class=item_r>" + data[i].Farm_endtime + "</span></div>" + "<div class=item_s ><img onerror='showerrimg(this);' width='280' src='" + data[i].pic_route + "'/></div>" );
+                               
+                               
+                               
+                               });
+                        
+                        
+                
+                        
+                        });
+              
+              mynav();
+              });
+            
+            var x=0;
+            
+            function sendyes(){
+               
+                x=x+1;
+                
+                if(x<=1){
+                    
+                    show('light');
+                
+                    getreviewinfo("0");
+                }
+             
+                       
+            }
+            
+            
+            function showerrimg(obj){
+                
+                var errorimg = "../img/zwt.png";//替换图片地址
+                obj.src = errorimg;
+                
+            }
+            
+            
+            function sendno(){
+                
+                x=x+1;
+                
+                if(x<=1){
+                    
+                show('light');
+                getreviewinfo("1");
+              
+                }
+            
+              
+                
+            }
+            
+            
+            function goback(){
+            
+            
+                if(localStorage.j_grade == "中心户"){
+                    
+                    window.location.href="../willdo/index_z.html";
+                    
+                                       
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                
+                 window.location.href="../willdo/index_ad.html";
+                
+                }else{
+                    
+                     window.location.href="../willdo/index.html";
+                }
+
+            
+            
+            }
+            
+            function getreviewinfo(tag){
+                
+            
+                var scontact = "http://10.0.0.61:8015/Pages/Json.aspx?CenterFarmerID="+localStorage.j_username+"|"+ tag + "&FIDS="+localStorage.j_fid;
+              
+                //alert(scontact);
+                
+                $.getJSON(
+                          scontact,
+                          function(data) {
+                          $.each(data, function(i) {
+                                 $("#rinfo").append("<div style='font: normal 14px Arial, Helvetica;padding:10px;'><h3>用户:" + data[i].user + "</h3><br><h3>审核消息:" + data[i].error+ ""+"</h3></div>")
+                                 });
+                          });
+
+            
+            }
+            function mynav(){
+                
+                
+                if(localStorage.j_grade == "中心户"){
+                    
+                    $("#footer_menu").append("<input onclick='sendno();' type=image src='../img/no.png'class='nav_1'><input  onclick='sendyes();' type=image src='../img/yes.png'>");
+                    
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                       $("#footer_menu").append("<input onclick='sendno();' type=image src='../img/no.png'class='nav_1'><input  onclick='sendyes();' type=image src='../img/yes.png'>");
+                    
+                }else{
+                    $("#footer_menu").append("");
+
+                    
+                }
+            }
+
+            
+            function show(tag){
+                
+                var light=document.getElementById(tag);
+                var opencarmra = document.getElementById(tag);
+                var fade=document.getElementById('fade');
+                
+                if(tag == "light" ){
+                    
+                    light.style.display='block';
+                    fade.style.display='block';
+                    
+                }else if(tag == "opencarmra"){
+                    
+                    opencarmra.style.display='block';
+                    fade.style.display='block';
+                    
+                }
+                
+                
+                
+            }
+            function hide(tag){
+                var light=document.getElementById(tag);
+                var opencarmra = document.getElementById(tag);
+                var fade=document.getElementById('fade');
+                light.style.display='none';
+                opencarmra.style.display='none';
+                fade.style.display='none';
+                goback();
+            }
+            
+            </script>
+        
+        <div id="light" class="white_content">
+            <div class="close"><a href="javascript:void(0)" onclick="hide('light')">关闭</a></div>
+            <div class="con">
+                <div id="rinfo">
+                </div>
+            </div>
+        </div>
+        
+        <div id="opencarmra" class="white_content">
+            <div class="close"><a href="javascript:void(0)" onclick="hide('opencarmra')">关闭</a></div>
+            <div class="con">
+                
+                <button class='button' onclick="getPhoto0()">上传图片</button>
+                
+            </div>
+        </div>
+        
+        <div id="fade" class="black_overlay"></div>
+        <DIV style="height:4em;">
+        </DIV>
+        
+        <DIV id="footer_menu">
+     
+        </DIV>
+        
+        
+    </body>
+</html>

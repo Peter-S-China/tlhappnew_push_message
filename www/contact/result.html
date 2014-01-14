@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/jquery_last_mini.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        
+        
+        <title>contact list</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#F0F0F0;
+                
+                
+                
+            }
+            a { color:#000;text-decoration: none; }
+            a:hover { color:#000;text-decoration: none; }
+            a:link {color:#000;text-decoration:none;}
+            a:visited {color:#000;text-decoration:none;}
+            
+            .s_content{
+                
+                
+            }
+            
+            #footer_menu{
+                position:fixed;
+                bottom:0px;
+                left: 0px;
+                border-top:1px solid #007410;
+                z-index: 1000;
+                width: 100%;
+                clear:both;
+                text-align:left;
+                
+                overflow:visible;
+                background-color: #191919;
+                
+            }
+            .nav_1 {
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                
+                background-color:#191919;
+                background-image:url("../img/homepage_n.png");
+                height:49px;
+                width:80px;
+                font-size:12px;
+                border:0px;
+                padding-top:30px;
+                
+                
+            }
+            
+            .nav_2 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                
+                background-color:#191919;
+                background-image:url("../img/dbn_nav.png");
+                height:49px;
+                width:80px;
+                font-size:12px;
+                border:0px;
+                padding-top:30px;
+                
+            }
+            
+            .nav_3 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                
+                background-color:#191919;
+                
+                background-image:url("../img/ywcn_nav.png");
+                height:49px;
+                width:80px;
+                font-size:12px;
+                border:0px;
+                padding-top:30px;
+                
+            }
+            
+            .nav_4 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:24px;
+                background-color:#19c231;
+                background-image:url("../img/lxr_y.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            
+            .top_menu {
+                
+                right:0;
+                top:0;
+                width:100%;
+                position:fixed;
+                
+                
+                background-image:url("../img/top_bg.png");
+                
+                
+                
+                
+            }
+            .t_title{
+                
+                text-align:center;
+                color:#fff;
+                font: normal 24px Arial, Helvetica;
+                margin-top:12px;
+                
+                
+            }
+            
+            .searbox {
+                -webkit-transition-property: -webkit-box-shadow, background;
+                -webkit-transition-duration: 0.25s;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#fff));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+                
+                border:1px solid #ccc;
+                margin-top:10px;
+                margin-bottom:10px;
+                margin-left:12px;
+                
+                width: 23em;
+                height:2.6em;
+                font-size:12px;
+                padding-left:20px;
+                color:#000;
+                background-image:url("../img/zoom.png");
+                background-repeat:no-repeat;
+                background-color:#FFF;
+                
+                
+                input.button{
+                    
+                    border:1px solid #ccc;
+                    
+                }
+            }
+            #info_list{
+                
+                
+                margin-top:84px;
+                padding-top:10px;
+                
+                
+                
+                
+            }
+            .group_ts{
+                background-image:url("../img/group_t.png");
+                font: normal 12px Arial, Helvetica;
+                width: 315px;
+                color:#fff;
+                height:1.6em;
+                padding-left:5px;
+                padding-top:5px;
+                
+            }
+            .item_s{
+                
+                font: normal 18px Arial, Helvetica;
+                
+                width: 300px;
+                border-bottom:1px solid #c0c0c0;
+                text-align: left;
+                
+                margin-left:10px;
+                margin-top:10px;
+                margin-bottom:10px;
+            }
+            
+            
+            </style>
+    </head>
+    <body>
+        
+        <div class="top_menu">
+            <div class="t_title">
+                联系人
+            </div>
+            <div ID="searchbox">
+                
+                
+                
+                <input class="searbox" id='search_b' name='searchtel' type="text" placeholder="Search" onblur='search_r();'/>
+                
+                
+            </div>
+            
+        </div>
+        
+        <div id="info_list">
+            
+        </div>
+        
+        <script>
+            //alert(localStorage.j_username);
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?userid="+ localStorage.j_username +"";
+            
+            //var jcontact ="http://10.0.0.61:8015/Pages/Json.aspx?userids=1000";
+            
+            var u_itemlist;
+            
+            var str = "";
+            
+            var v_itemlist;
+            
+            var kw;
+            
+            $(function() {
+              
+              
+              alert(localStorage.j_username + "keyword>>>" + localStorage.j_keyword);
+              
+              search_r(localStorage.j_keyword);
+              
+           
+          
+              
+              });
+            
+                           
+                
+       
+            
+            function search_r(kw){
+                
+                $("#d_list").remove();
+                
+            
+                
+                var surl = "http://10.0.0.61:8015/Pages/Json.aspx?farmerIDsearch="+ localStorage.j_username;
+                
+                var str="";
+                
+                str += "<div id='d_list'>"
+                
+                $.post(surl, { searchtel: kw },
+                       function(data){
+                       
+                       
+                       
+                       $.each(data, function(i) {
+                              
+                              str += "<span style='margin-left:10px;'>" + data[i].FarmerName + "</span><span style='margin-right:20px;text-align:right;float:right'>" + data[i].PhoneNumber +"</span><br>";
+                              
+                              
+                              })
+                       
+                       str += "</div>";
+                       
+                       $("#info_list").append(str);
+                       
+                       
+                       }, "json");
+                
+                
+                
+                
+                
+                
+            }
+            
+            function gohome(){
+                
+                //alert("gowilldo");
+                
+                //alert(localStorage.j_grade);
+                
+                
+                window.location.href="../main.html";
+                
+                
+            }
+            
+            function getJSONtel(bb) {
+                
+                //var bb="id:1000|name:张三|tel:15670821563";
+                
+                var f = bb.indexOf("tel:");
+                
+                var t = bb.substring(f+4,f+18);
+                
+                //alert(t);
+                
+                return t;
+                
+            }
+            
+            
+            
+            
+            
+            function gowilldo(){
+                
+                
+                //alert("gofinished");
+                
+                if(localStorage.j_grade == "中心户"){
+                    
+                    window.location.href="../willdo/index_z.html";
+                    
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                    window.location.href="../willdo/index_ad.html";
+                    
+                }else{
+                    
+                    window.location.href="../willdo/index.html";
+                }
+            }
+            
+            function gofinished(){
+                
+                if(localStorage.j_grade == "中心户"){
+                    
+                    window.location.href="../finished/index_z.html";
+                    
+                }else if(localStorage.j_grade == "管理员"){
+                    
+                    window.location.href="../finished/index_ad.html";
+                    
+                }else{
+                    
+                    window.location.href="../finished/index.html";
+                }
+                
+            }
+            
+            
+            
+            
+            </script>
+        
+        <DIV style="height:4em;">
+        </DIV>
+        
+        <DIV id="footer_menu">
+            
+            
+            <input type= button onclick="gohome();" class='nav_1' value = "首页"> <input type= button onclick="gowilldo();" class='nav_2'  value='待办'><input class='nav_3'  type=button onclick="gofinished();" value="已完成"><div class='nav_4'>联系人</div>
+                </DIV>
+        
+        
+    </body>
+</html>

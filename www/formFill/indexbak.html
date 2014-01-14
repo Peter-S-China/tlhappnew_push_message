@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+            
+            <title>Tabs</title>
+            
+            <link rel="stylesheet" href="css/style.css">
+                
+                <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js "></script>
+                <script src="js/organictabs.jquery.js"></script>
+             
+                <script>
+                    $(function() {
+                      
+                      $("#example-one").organicTabs();
+                      
+                      $("#example-two").organicTabs({
+                                                    "speed": 200
+                                                    });
+                      
+                      });
+                    </script>
+    </head>
+    <style>
+        #footer_menu{
+            position:fixed;
+            left: 0px;
+            right:0;
+            bottom: 0px;
+            border-top:1px solid #007410;
+            z-index: 1000;
+            width: 100%;
+            text-align: left;
+            background-color: #191919;
+            display:block;
+            
+            
+        }
+        .nav_1 {
+            float:left;
+            
+            color: #fff;
+            
+            margin-top:0px;
+            margin-left:0px;
+            
+            background-color:#191919;
+            background-image:url("../img/homepage_n.png");
+            height:49px;
+            width:80px;
+            font-size:12px;
+            border:0px;
+            padding-top:30px;
+            
+            
+        }
+        
+        .nav_2 {
+            
+            float:left;
+            
+            color: #fff;
+            
+            margin-top:0px;
+            margin-left:0px;
+            
+            background-color:#191919;
+            background-image:url("../img/dbn_nav.png");
+            height:49px;
+            width:80px;
+            font-size:12px;
+            border:0px;
+            padding-top:30px;
+            
+        }
+        .nav_3 {
+            
+            float:left;
+            
+            color: #fff;
+            
+            margin-top:0px;
+            margin-left:0px;
+            padding-top:32px;
+            padding-left:24px;
+            background-color:#19c231;
+            
+            background-image:url("../img/ywc_y.png");
+            height:1.9em;
+            width:4.6em;
+            font-size:12px;
+            
+        }
+        .nav_4 {
+            
+            float:left;
+            
+            color: #fff;
+            
+            margin-top:0px;
+            margin-left:0px;
+            
+            background-color:#191919;
+            background-image:url("../img/lzrn_nav.png");
+            height:49px;
+            width:80px;
+            font-size:12px;
+            border:0px;
+            padding-top:30px;
+            
+        }
+        
+        .sendticket {
+            
+            float:left;
+            
+            color: #fff;
+            
+            margin-top:0px;
+            margin-left:36%;
+            
+            background-color:#191919;
+            background-image:url("../img/sentticket.png");
+            height:49px;
+            width:80px;
+            font-size:12px;
+            border:0px;
+            padding-top:30px;
+            
+        }
+        .top_menu{
+            
+            right:0;
+            top:0;
+            width:100%;
+            position:fixed;
+            z-index:999;
+            background:#0096ff;
+        }
+        .t_title{
+            
+            text-align:right;
+            color:#fff;
+            font: normal 24px Arial, Helvetica;
+            margin-top:12px;
+            
+            width:158px;
+            float:left;
+           
+            
+            
+        }
+        .t_titlec{
+            
+            text-align:right;
+            color:#0096ff;
+            font: normal 24px Arial, Helvetica;
+            margin-top:12px;
+            padding:10px;
+            width:175px;
+            float:left;
+        
+            
+            
+            
+        }
+        .t_reload{
+            float:right;
+            text-align:right;
+            padding-right:10px;
+            
+            padding-top:6px;
+            
+            
+            
+        }
+
+        .backbutton{
+            float:left;
+            border:0;
+            background-image:url("../img/back.png");
+            width: 1.5em;
+            height:2em;
+            
+            margin-top:10px;
+            
+            margin-left:12px;
+            background-repeat: repeat-y;
+            
+        }
+        
+        .styled-select{
+        
+            font: normal 16px Arial, Helvetica;
+            margin-top:5px;
+            border-bottom:1px solid #d1d1d1;
+            height: 42px;
+            line-height:2.8;
+            text-align:left;
+            padding:3px;
+            
+        }
+        
+        .styled-select select {
+        
+            width:186px;
+            padding: 5px;
+            font-size: 16px;
+            line-height: 1;
+            border: 0;
+            border-radius: 0;
+            height: 42px;
+            -webkit-appearance: none;
+            overflow: hidden;
+            border: 0px;
+            margin-top:1px;
+            float:right;
+        }
+        
+        .selectbutton{
+            
+            width:180px;
+            padding: 5px;
+            font-size: 18px;
+            line-height: 1;
+            border: 0;
+            border-radius: 0;
+            height: 28px;
+            -webkit-appearance: none;
+            overflow: hidden;
+            border: 0px;
+            float:right;
+            margin-top:8px;
+            
+            text-align:left;
+            
+            
+            
+        }
+        
+        
+        .select1 select{
+            
+                background-color:#fff;
+                width:280px;
+                padding: 5px;
+                font-size: 16px;
+                line-height: 1;
+                border: 0;
+                border-radius: 0;
+                height: 100%;
+                -webkit-appearance: none;
+                overflow: hidden;
+                border: 0px;
+                margin-top:10px;
+                margin-left:20px;
+                margin-bottom:10px;
+                float:left;
+            
+            
+            }
+            
+        
+        .select1 lable{
+        
+            margin-top:10px;
+            float:left;
+            width: 220px;
+            font: normal 24px Arial, Helvetica;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1;
+            border: 0;
+            
+            border-bottom:1px solid #ccc;
+            height: 18px;
+            
+            overflow: hidden;
+            border: 0px;
+            float:right;
+        }
+     
+        
+        .select1 input{
+            
+            margin-top:20px;
+            width:40px;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1;
+            height: 18px;
+            overflow: hidden;
+            
+            float:right;
+            
+            border:1px solid #ccc;
+        
+        }
+  
+    
+        .scheckbox{
+        
+            width: 240px;
+            padding-top:10px;
+            padding-bottom:30px;
+            padding-right:30px;
+            margin-left:5px;
+            font: normal 18px Arial, Helvetica;
+            line-height:20px;
+       
+            
+        }
+         
+        .scheckbox lable{
+           
+            float:left;
+            width: 200px;
+            font: normal 18px Arial, Helvetica;
+            line-height:20px;
+            margin-bottom:15px;
+            text-align:left;
+           
+            background: #f0f0f0;
+            background: linear-gradient(#fff, #eee);
+            border-radius: 6px;
+            cursor: pointer;
+          
+            
+        }
+        
+        .scheckbox lable:hover{
+            
+             color: #fff;
+             background: #f7941d;
+         }
+        
+        .scheckbox input{
+        
+         margin-top:3px;
+         width:20px;
+         height:20px;
+         
+          
+        }
+
+        .scheckbox input:checked+lable{
+            
+            background: #0096ff;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+            color: #000;
+        }
+        
+    
+      
+        
+        .black_overlay {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 200%;
+            background-color:#000;
+            z-index:9998;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=80);
+        }
+        
+        .white_content1 {
+            display: none;
+            position: absolute;
+            top: 25%;
+            left: 0;
+            width: 280px;
+            height: auto;
+            background-color:#f0f0f0;
+            border: 1px solid #e4e4e4;
+            z-index:9999;
+            color:#fff;
+            margin-left:20px;
+            border-radius:10px;
+        }
+        
+        .white_content2 {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 320px;
+            height: 560px;
+            background-color:#F0F0F0;
+            z-index:9999;
+      
+            
+        }
+        
+        .close {
+            float:right;
+            clear:both;
+            width:100%;
+            text-align:right;
+            margin:0 0 6px 0;
+            color:#fff;
+        }
+        .close a {
+            color:#333;
+            text-decoration:none;
+            font-size:14px;
+            
+            color:#fff;
+        }
+        
+        .con {
+            text-indent:1.5pc;
+            line-height:21px;
+            color:#000;
+            margin-top:60px;
+         
+            background-color:#f0f0f0;
+            z-index:9999;
+        
+       
+        }
+        .u_button{
+            width:138px;
+            background-color:#e4e4e4;
+            
+            font-size:20px;
+            padding:15px;
+            
+            color:#0096ff;
+            margin-left:1px;
+            
+            background-image:url("../img/ubuttonbg.png");
+            border-radius:10px;
+         }
+        
+       
+        
+        </style>
+    
+    <script>
+        
+        $(function() {
+          
+          getinfolist_0();
+          //getinfolist_1();
+          //getbnsinfo();
+          //getnzinfo();
+          
+          
+          });
+        
+        </script>
+    
+    <script>
+        
+        var s_FarmerIDs;
+        var s_LandIDS;
+        var s_notice_Farm_Nexttings;
+        var s_notice_MaterialIDS;
+        var s_notice_endtime="2013-12-01";
+        var s_notice_sign;
+        
+        function sendticket(){
+        
+    //alert(localStorage.j_username + "GroupID" + +" FarmerIDs"+s_FarmerIDs+"LandIDS"+s_LandIDS+"s_notice_Farm_Nexttings"+s_notice_Farm_Nexttings +"s_notice_MaterialIDS"+s_notice_MaterialIDS);
+           
+      
+            var strfrm = "<form id='myform' method='post' target='actionframe'>";
+            strfrm +="<input type=hidden value='"+ s_FarmerIDs +"'name ='FarmerIDs'/>";
+            strfrm +="<input  type=hidden value='"+ s_LandIDS +"'name ='LandIDS'/>";
+            strfrm +="<input  type=hidden value='"+ s_notice_Farm_Nexttings +"'name ='notice_Farm_Nexttings'/>";
+            strfrm +="<input  type=hidden value='"+ s_notice_MaterialIDS +"'name ='notice_MaterialIDS'/>";
+            strfrm +="<input  type=hidden value='"+ s_notice_endtime +"'name ='notice_endtime'/>";
+            strfrm +="<input  type=hidden value='"+ s_notice_sign +"'name ='notice_sign'/>";
+            strfrm +="<input  type=hidden  value='"+ localStorage.j_GroupID +"'name ='groupid'/>";
+         
+            
+            strfrm += "</form>";
+            
+            //alert(strfrm);
+            
+            $("#sendDB").append(strfrm);
+            
+            
+           document.getElementById("myform").action = " http://10.0.0.61:8015/Pages/Json.aspx?GroupFarmerID="+localStorage.j_username;
+            
+            document.getElementById("myform").submit();
+            
+            
+            window.location.href="./index.html";
+
+            
+           // window.location.href=" http://10.0.0.61:8015/Pages/Json.aspx?GroupFarmerID="+localStorage.j_username+"&FarmerIDs="+s_FarmerIDs+"&LandIDS="+s_LandIDS+"&notice_Farm_Nexttings="+s_notice_Farm_Nexttings+"&notice_MaterialIDS="+s_notice_MaterialIDS+"&groupid="+localStorage.j_GroupID+"& notice_sign="+s_notice_sign+"& notice_endtime="+s_notice_endtime;
+       
+            
+        }
+      
+        function reload(){
+            window.location.reload();
+            
+        }
+        
+        function Delu_list(){
+            
+            $("#userlist").remove();
+            hide('light');
+         
+        }
+        
+        function Dell_list(){
+            
+            $("#landlist").remove();
+            hide('light5');
+            
+        }
+        function Deln_list(){
+            
+            $("#nslist").remove();
+            hide('light2');
+        }
+        
+        function Delzzz_list(){
+            
+               //alert("");
+            $("#nzlist").remove();
+            hide('light3');
+            
+        }
+        
+        
+        function Delsss_list(){
+            
+            //alert("");
+            $("#bnslist").remove();
+            hide('light4');
+            
+        }
+        
+        function getnzinfo(){
+       
+            
+            
+             //alert("");
+            
+            Delzzz_list();
+            
+            show('light3');
+            
+       var njcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_basic=" + localStorage.j_username + "&load_item=1";
+       
+            
+            
+            var nzinfo ="";
+            
+            nzinfo += "<div id='nzlist' >";
+            
+            
+            //alert(njcontact);
+            $.getJSON(
+                      njcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             
+                     nzinfo += "<div class='scheckbox'><input  style='float:right;' name='checkbox3' type = checkbox value= '"+ data[i].MaterialID + "'>" ;
+            
+                             nzinfo += "<lable>"+data[i].MaterialName+"</lable>";
+                             nzinfo += "</div>";
+                             
+                             });
+                      
+                      nzinfo += "</div>";
+                      
+                    //alert(nzinfo);
+                      
+                     $("#aaaaaa").append(nzinfo);
+                      
+                    
+                      
+                      
+                      });
+            
+            
+            
+        }
+        
+        
+        function getnsinfo(){
+        
+            //alert(ns2id);
+            hide('light2');
+            
+            //var aa = $("#selec").find("option:selected").text();
+        
+            var aa = $("input:[name=selec]:radio:checked + lable").text();
+            
+            
+            //aa +=  ">>" + $("#select").find("option:selected").text();
+            
+            aa +=  ">>" + $("input:[name=select]:radio:checked + lable").text();
+            
+            //var bb = $("#select").find("option:selected").val();
+       
+            var bb = $("input:[name=select]:radio:checked").val();
+            
+            //alert(bb);
+            
+            
+            s_notice_Farm_Nexttings = bb;
+            
+            
+            if(s_notice_sign == "1"){
+                
+               document.getElementById("unsinfo").value = aa;
+            
+            }else if(s_notice_sign == "0"){
+            
+               document.getElementById("nsinfo").value = aa;
+            }
+            
+            hide('light4');
+         
+            
+            
+        }
+        
+        function getns2info(){
+            
+            
+            var nsid =  $("input:[name=selec]:radio:checked").val();
+            
+            //alert(nsid);
+            
+            Deln_list();
+            hide('light4');
+            
+            
+            show('light2');
+            
+            //alert(nsid);
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_basic=" + nsid + "&load_item=3";
+            
+            //alert(jcontact);
+            
+            var ns2info ="";
+        
+            ns2info += "<div id='nslist' class='select1'>";
+            
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             
+                        ns2info += "<input onclick='getnsinfo();'  name='select' id='select'  type='radio' value= "+ data[i].id + "><lable style='font-size: 18px;'>" + data[i].Farmname;
+                             
+                             ns2info += "</lable>";
+                             });
+                      
+                ns2info += "</select></div>";
+                    
+                     
+                      $("#fffff").append(ns2info);
+                     
+                      
+                      
+                      });
+            
+            
+    
+        }
+        
+        
+        
+       
+        function getlandinfo(uid){
+            
+            s_FarmerIDs = uid;
+            
+            Dell_list();
+            
+            show('light5');
+            //var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm=" + localStorage.j_username + "&farm_type=1";
+            //var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?loadinglandID="+ landfid +"&loadingFarmerID=" + localStorage.j_username;
+            
+            
+            var jcontact =  "http://10.0.0.61:8015/Pages/Json.aspx?loadinglandID=0&loadingFarmerID="+ uid;
+            
+            //alert(jcontact);
+            
+            
+            var userinfo ="";
+            userinfo += "<div id='landlist' >";
+            
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             
+                             userinfo += "<div class='scheckbox'><input  name='checkbox'  style='float:right;' type=checkbox value= "+data[i].landcode + ">" + "<lable>"+data[i].LandName+"</lable></div>";
+                             
+                             
+                             });
+                      
+                      
+                      userinfo += "</div>";
+                      
+                      $("#userlandlist").append(userinfo);
+                      
+                      
+                      //alert(userinfo);
+                      
+                      });
+            
+            
+            
+        }
+        
+        var xx=0;
+  
+        function getinfolist_0(){
+            
+            xx = xx+1;
+            
+            s_notice_sign="0";
+            
+            //alert(s_notice_sign);
+         
+            //var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm="+ localStorage.j_username +"&farm_type=2";
+            
+            if(xx <= 1){
+        
+       var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?loadinglandID=0&loadingFarmerID=" + localStorage.j_username;
+            
+            
+                     
+            var strSelect="";
+            strSelect += "<div class='styled-select'>地块:<select onchange='getlanduserinfo(this[selectedIndex].value);'>";
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             
+                      strSelect +="<option value='"
+                      strSelect += data[i].landcode +"'>"+ data[i].LandName;
+                      //$("#featured2").append(""+ data[i].landcode + data[i].LandName+"" );
+                      strSelect +="</option><br>"
+                             
+                     });
+                     
+                    strSelect += "</select></div><div class='styled-select'><lable>农户:</lable><input class='selectbutton'readonly type=button id='userinfo'/></div>";
+                      
+                      
+                      strSelect += "<div class='styled-select'><lable>农事:</lable><input  class='selectbutton' onclick='getbnsinfo();'type=button id='nsinfo'/></div>       <div class='styled-select'><lable>农资:</lable><input class='selectbutton' type=button id='nzinfo' onclick='getnzinfo();'  /></div><div class='styled-select'><lable>截止日:</lable><input style='width:120px;padding: 5px;font-size: 18px;line-height: 1;border: 0;border-radius: 0;height: 28px;-webkit-appearance: none;overflow: hidden;border: 0px;float:right;margin-top:2px;margin-right:50px;text-align:left;' type=text  value='"+ getdateN()+"'/></div>";
+                    $("#featured2").append(strSelect);
+                      
+                    
+                
+                      });
+            }
+            
+        }
+        
+        function getlanduserinfo(landfid){
+            
+            s_LandIDS = landfid;
+            
+            Delu_list();
+            
+            show('light');
+            
+            
+            
+            //var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm=" + localStorage.j_username + "&farm_type=1";
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?loadinglandID="+ landfid +"&loadingFarmerID=" + localStorage.j_username;
+            //alert(jcontact);
+            
+            
+            var userinfo ="";
+            userinfo += "<div id='userlist' >";
+            
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             
+                             userinfo += "<div class='scheckbox'><input  name='checkbox'  style='float:right;' type=checkbox value= "+data[i].FarmerID + ">" + "<lable>"+data[i].FarmerName+"</lable></div>";
+                             
+                             
+                             });
+                      
+                      
+                      userinfo += "</div>";
+                      
+                      $("#userinfolist").append(userinfo);
+                      
+                      
+                      //alert(userinfo);
+                      
+                      });
+            
+            
+            
+        }
+        var yy = 0;
+        
+        function getgrouplist(){
+            
+            
+            s_notice_sign = "1";
+            
+            //alert(s_notice_sign);
+            
+            yy = yy + 1;
+            
+            
+            if(yy<=1){
+            var jcontact = " http://10.0.0.61:8015/Pages/Json.aspx?load_basic="+ localStorage.j_username +"&load_item=0";
+            
+            //var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?loadinglandID=0&loadingFarmerID=" + localStorage.j_username;
+            
+            
+           
+            
+            //alert(jcontact);
+            var strSelect="";
+            strSelect += "<div class='styled-select'>农户:<select onchange='getlandinfo(this[selectedIndex].value);'>";
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             
+                             strSelect +="<option value='"
+                             strSelect += data[i].FarmerID +"'>"+ data[i].FarmerName;
+                             //$("#featured2").append(""+ data[i].landcode + data[i].LandName+"" );
+                             strSelect +="</option><br>"
+                             
+                             });
+                      
+                      strSelect += "</select></div><div class='styled-select'>地块:<input class='selectbutton' readonly type=button id='landinfo'/></div>";
+                      
+                      
+                      strSelect += "<div class='styled-select'>农事:<input class='selectbutton' onclick='getbnsinfo();'type='button'  id='unsinfo'/></div>       <div class='styled-select'><lable>农资:<lable><input class='selectbutton' type=button id='unzinfo' onclick='getnzinfo();'   /></div><div class='styled-select'><lable>截止日:<lable><input style='width:120px;padding: 5px;font-size: 18px;line-height: 1;border: 0;border-radius: 0;height: 28px;-webkit-appearance: none;overflow: hidden;border: 0px;float:right;margin-top:2px;margin-right:50px;text-align:left;' type=text  value='"+ getdateN()+"'/></div>";
+                      $("#groupbinfo").append(strSelect);
+                      
+                      
+                      
+                      });
+            }
+            
+        }
+        
+ 
+        
+        
+        function getdateN(){
+        
+        
+            var myDate = new Date();
+            var s_date = myDate.getFullYear()+ "-" + myDate.getMonth()+ "-" + myDate.getDate()+"";
+            
+            return s_date;
+           }
+        
+        function getbnsinfo(){
+            
+            
+               Delsss_list();
+            
+               show('light4');
+          
+                var bjcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_basic="+ localStorage.j_username +"&load_item=2";
+            
+                //alert(bjcontact);
+                var strns =" <div id='bnslist' class='select1'>";
+                $.getJSON(
+                          bjcontact,
+                          function(data) {
+                          $.each(data, function(i) {
+                                 
+                                strns += "<input onclick='getns2info();' type='radio' name='selec' value='";
+                                strns += data[i].id + "'/><lable style='font-size: 18px;'>" + data[i].Farmname;
+                                strns += "</lable>"
+                                 
+                                 });
+                
+                          strns +="</div>";
+                        
+                          //alert(strns);
+                          
+                          $("#ssssss").append(strns);
+                         
+                          
+                          
+                          
+                          
+                          });
+            
+        }
+        
+        function  savenzinfo(){
+        
+            
+            var s='';
+            var b='';
+            $('input[name="checkbox3"]:checked').each(function(){
+                                                        s+=$(this).val()+'|';
+                                                        b += $(this).next('lable').html()+',';   
+                                                      });
+            //alert(s==''?'你还没有选择任何内容！':s);
+            //alert(b==''?'你还没有选择任何内容！':b);
+            
+            if(s_notice_sign == "1"){
+            
+            document.getElementById("unzinfo").value = b;
+            
+            }else if(s_notice_sign == "0"){
+            
+            document.getElementById("nzinfo").value = b;
+            
+            }
+           
+            
+            s_notice_MaterialIDS = s;
+        
+            hide('light3');
+            
+            
+        }
+        
+ 
+        
+        function saveuserinfo(){
+            
+            var s='';
+            var b='';
+            $('input[name="checkbox"]:checked').each(function(){
+                                                     s+=$(this).val()+'|';
+                                                     b += $(this).next('lable').html()+',';                                                     
+                                                     });
+            //alert(s==''?'你还没有选择任何内容！':s);
+            //alert(b==''?'你还没有选择任何内容！':b);
+
+            s_FarmerIDs = s;
+            
+            document.getElementById("userinfo").value = b;
+           
+            
+            
+            hide('light');
+            
+            
+            
+        }
+        
+        function savelandinfo(){
+            
+            var s='';
+            var b='';
+            $('input[name="checkbox"]:checked').each(function(){
+                                                     s+=$(this).val()+'|';
+                                                     b += $(this).next('lable').html()+',';
+                                                     });
+            //alert(s==''?'你还没有选择任何内容！':s);
+            //alert(b==''?'你还没有选择任何内容！':b);
+            
+            s_LandIDS = s;
+            
+            
+            
+            document.getElementById("landinfo").value = b;
+            
+            
+            
+            hide('light5');
+            
+            
+            
+        }
+        
+        
+        function show(tag){
+            
+            var light = document.getElementById(tag);
+            var fade=document.getElementById('fade');
+       
+            //alert(tag);
+            
+            if(tag == "light2"){
+                
+                
+                $("#light2").show(1000);
+                
+            }
+
+            light.style.display='block';
+            fade.style.display='block';
+            
+                      
+            
+        }
+
+        function hide(tag){
+            
+            var light=document.getElementById(tag);
+            var fade=document.getElementById('fade');
+            
+            light.style.display='none'; 
+            fade.style.display='none';
+        }
+        
+        
+        
+        
+        
+        </script>
+    
+    <body>
+       
+        <div id="page-wrap">
+            <div id="example-two">
+                
+                 <iframe width="0" height="0" name="actionframe"></iframe>
+                <div class="top_menu">
+                 
+                    <input type=button class="backbutton" onclick="javascript:history.go(-1);">
+
+                    <div class="t_title">
+                        发&nbsp;单
+                    </div>
+                    <div class="t_reload">
+                        <input onclick="reload()"  style="float:right;"type = "image" src="../img/s_reload.png" width="30px" height="30px"/>  </div>
+                    
+                    <ul class="nav" >
+                        
+                        <li  style="margin-left:60px;"class="nav-one"><a onclick="getinfolist_0();" href="#featured2" class="current">按地块</a></li>
+                        <li class="nav-two"><a onclick="getgrouplist();"  href="#core2">按农户</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="list-wrap" >
+                    
+                    <ul >
+                        <div id="featured2">
+                         
+                     
+                             
+                        
+                           
+                        
+                        </div>
+                        
+                       
+                        
+                        
+                        
+                    </ul>
+                    
+                    
+                    
+                    <ul id="core2" class="hide">
+                        
+                        <div id="groupbinfo">
+                            
+                            
+                            
+                            
+                            
+                            
+                        </div>
+                        
+                        
+                    </ul>
+                    
+                    
+                    
+                </div> <!-- END List Wrap -->
+                
+            </div> <!-- END Organic Tabs (Example One) -->
+            
+            
+        </div>
+        
+        
+        <div id="light5" class="white_content1">
+            
+            
+     
+                <div class="t_titlec">
+                    选土地
+                </div>
+            
+            
+            <div class="con" id='userlandlist'>
+             
+            </div>
+            
+            <input  class='u_button' onclick='savelandinfo();' type=button value='选择地块'/><input class='u_button' onclick='Dell_list();' type=button value='取消选择'/>   
+        </div>
+        
+        <div id="light4" class="white_content1">
+            
+            
+           
+                <div class="t_titlec">
+                    一级农事
+                </div>
+            
+            
+            <div class="con" id='ssssss'>
+                
+            </div>
+            
+        </div>
+        
+        
+        
+        <div id="light3" class="white_content1">
+           
+                <div class="t_titlec">
+                    选农资
+                </div>
+            
+            <div class="con" id='aaaaaa'>
+                
+            </div><input type=button  class='u_button' onclick='savenzinfo();' value='确定'><input type=button onclick='Delzzz_list();'class='u_button'  value='取消'>
+        </div>
+
+        <div id="light2" class="white_content1">
+            
+                <div class="t_titlec">
+                    二级农事
+                </div>
+            
+           
+            <div class="con" id='fffff'>
+            
+            </div>
+        </div>
+        
+            
+            
+            
+        <div id="light" class="white_content1">
+     
+                <div class="t_titlec">选择农户
+                </div>
+           
+        
+            <div class="con" id='userinfolist' >
+            
+            </div>
+            <input  class='u_button' onclick='saveuserinfo();' type=button value='选择用户'/><input class='u_button' onclick='Delu_list();' type=button value='取消选择'/>
+        </div>
+        <div id="fade" class="black_overlay"></div>
+        
+         <div id="sendDB" ></div>
+        
+        
+        
+        <DIV id="footer_menu">
+
+       <input type= button onclick="sendticket();" class='sendticket'  value='发单'></div>
+        
+        
+    </body>
+    
+</html>

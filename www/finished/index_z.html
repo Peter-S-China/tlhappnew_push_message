@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Tabs</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+	
+    <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js "></script>
+    <script src="js/organictabs.jquery.js"></script>
+    <script>
+        $(function() {
+    
+            $("#example-one").organicTabs();
+            
+            $("#example-two").organicTabs({
+                "speed": 200
+            });
+    
+        });
+    </script>
+</head>
+<style>
+    #footer_menu{
+        position:fixed;
+        left: 0px;
+        right:0;
+        bottom: 0px;
+        border-top:1px solid #007410;
+        z-index: 1000;
+        width: 100%;
+        text-align: left;
+        background-color: #191919;
+        display:block;
+       
+        
+    }
+    .nav_1 {
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        
+        background-color:#191919;
+        background-image:url("../img/homepage_n.png");
+        height:49px;
+        width:80px;
+        font-size:12px;
+        border:0px;
+        padding-top:30px;
+        
+        
+    }
+    
+    .nav_2 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        
+        background-color:#191919;
+        background-image:url("../img/dbn_nav.png");
+        height:49px;
+        width:80px;
+        font-size:12px;
+        border:0px;
+        padding-top:30px;
+        
+    }
+    .nav_3 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        padding-top:32px;
+        padding-left:24px;
+        background-color:#19c231;
+        
+        background-image:url("../img/ywc_y.png");
+        height:1.9em;
+        width:4.6em;
+        font-size:12px;
+        
+    }
+    .nav_4 {
+        
+        float:left;
+        
+        color: #fff;
+        
+        margin-top:0px;
+        margin-left:0px;
+        
+        background-color:#191919;
+        background-image:url("../img/lzrn_nav.png");
+        height:49px;
+        width:80px;
+        font-size:12px;
+        border:0px;
+        padding-top:30px;
+        
+    }
+    .top_menu{
+     
+        right:0;
+        top:0;
+        width:100%;
+        position:fixed;
+        z-index:999;
+        background:#0096ff;;
+    }
+    .t_title{
+        
+        text-align:right;
+        color:#fff;
+        font: normal 24px Arial, Helvetica;
+        margin-top:18px;
+   
+         width:200px;
+         float:left;
+        
+        
+    }
+    .t_reload{
+        float:right;
+        text-align:right;
+        padding-right:10px;
+        
+        padding-top:6px;
+        
+  
+       
+    }
+    .itemtm{
+    
+        background-image:url("../img/group_t.png");
+        font: normal 12px Arial, Helvetica;
+        width: 315px;
+        color:#fff;
+        height:1.6em;
+        padding-left:5px;
+        padding-top:5px;
+        margin-top:1px;
+        margin-bottom:1px;
+     
+    }
+ 
+    </style>
+    
+    <script>
+
+        $(function() {
+          
+          getinfolist_0();
+          getinfolist_1();
+         
+          });
+                
+     </script>
+
+    <script>
+        function gohome(){
+            
+            //alert("gowilldo");
+            
+            //alert(localStorage.j_grade);
+            
+            
+            window.location.href="../main.html";
+            
+            
+        }
+        function gowilldo(){
+            
+            
+            //alert("gofinished");
+            
+            if(localStorage.j_grade == "中心户"){
+                
+                window.location.href="../willdo/index_z.html";
+                
+            }else if(localStorage.j_grade == "管理员"){
+                
+                window.location.href="../willdo/index_ad.html";
+                
+            }else{
+                
+                window.location.href="../willdo/index.html";
+            }
+        }
+        
+        function gocontact(){
+            
+            //alert("gocontact");
+            
+            window.location.href="../contact/index.html";
+            
+        }
+        
+        
+
+        
+        function reload(){
+            window.location.reload();
+        }
+       
+        function getinfolist_1(){
+           
+        
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm=" + localStorage.j_username + "&farm_type=1";
+            $("#featured1").append("<li class='itemtm'>审核中</li>");
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                              $("#featured1").append("<li style='margin-bottom:2px;border-top:1px solid "+ data[i].color +";border-right:1px solid "+ data[i].color+";border-bottom:1px solid "+data[i].color+";border-left:5px solid "+ data[i].color+"'><a href='../detail/viewdetail.html?SignfarmID="+data[i].fid+"&farm_state="+data[i].Farmstate+"'><span style='float:left;font-size:16px;height:20px;width:200px;'>" + data[i].LandName + "</span><span style='padding:2px;font-size:16px;' > " + data[i].fcd_Farmname +"</span><span style='margin-left:2px;float:left;font-size:12px;display:block;'>截止日:"+ data[i].Farm_endtime + "</span></a></li>")
+                             });
+                      });
+
+ 
+        }
+        function getinfolist_0(){
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm="+ localStorage.j_username +"&farm_type=2";
+           
+            $("#featured2").append("<li class='itemtm'>审核完成</li>");
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+
+                             //<input type=button value = data[i].fid >
+                             //<input type=button value = data[i].Farmstate>
+                             
+                             
+                             $("#featured2").append("<li style='margin-bottom:2px;border-top:1px solid "+ data[i].color +";border-right:1px solid "+ data[i].color+";border-bottom:1px solid "+data[i].color+";border-left:5px solid "+ data[i].color+"'><a href='../detail/viewdetail.html?SignfarmID="+data[i].fid+"&farm_state="+data[i].Farmstate+"'><span style='float:left;font-size:16px;height:20px;width:200px;'>" + data[i].LandName + "</span><span style='padding:2px;font-size:16px;' > " + data[i].fcd_Farmname +"</span><span style='margin-left:2px;float:left;font-size:12px;display:block;'>截止日:"+ data[i].Farm_endtime + "</span></a> </li>")
+                             });
+                      });
+
+        
+        }
+        
+        var x=0;
+        
+        function getgrouplist2(){
+            
+            //var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_farm="+ localStorage.j_username +"&farm_type=2";
+            x = x+1;
+       
+            if(x<=1){
+            var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?load_groupID=1000&farm_type=2";
+            
+            $.getJSON(
+                      jcontact,
+                      function(data) {
+                      $.each(data, function(i) {
+                             $("#core2").append("<li style='margin-bottom:2px;border-top:1px solid "+ data[i].color +";border-right:1px solid "+ data[i].color+";border-bottom:1px solid "+data[i].color+";border-left:5px solid "+ data[i].color+"'><a href='../detail/viewdetail.html?SignfarmID="+data[i].fid+"&farm_state="+data[i].Farmstate+"'><span style='float:left;font-size:16px;height:20px;width:200px;'>" + data[i].LandName + "</span><span style='padding:2px;font-size:16px;' > " + data[i].fcd_Farmname +"</span><span style='margin-left:2px;float:left;font-size:12px;display:block;'>截止日:"+ data[i].Farm_endtime + "</span></a></li>")
+                             });
+                      });
+            
+            }
+        }
+        
+        
+        function gotoDetail(){
+            
+            //alert("fid:"+ localStorage.jfid + "Farmstate:" +  localStorage.jFarmstate );
+            
+        
+            var  gogo = document.getElementById("gogo").value;
+            
+            alert(gogo);
+           
+        
+        }
+
+    </script>
+    
+<body>
+	<div id="page-wrap">
+	     <div id="example-two">
+             
+             
+             <div class="top_menu">
+                 
+                 
+                 <div class="t_title">
+                     已完成
+                     </div>
+                
+                 
+             <ul class="nav" >
+                 
+                <li  style="margin-left:60px;"class="nav-one"><a href="#featured2" class="current">本人农事</a></li>
+                <li class="nav-two"><a onclick="getgrouplist2();"  href="#core2">本组农事</a></li>
+             
+            </ul>
+             </div>
+    		
+    		<div class="list-wrap" >
+    		
+    			<ul >
+    	        <div id="featured2">
+                
+                    
+                
+                 <div id="featured1"></div>
+                </div>
+                
+                
+                </ul>
+                
+             
+        		 
+        		 <ul id="core2" class="hide">
+                  
+                     
+                 </ul>
+                
+        	
+        		 
+    		 </div> <!-- END List Wrap -->
+		 
+		 </div> <!-- END Organic Tabs (Example One) -->
+	
+		
+	</div>
+	
+    
+    <div style="height:100px;display:block;">&nbsp;&nbsp;&nbsp;&nbsp;
+        
+    </div>
+
+
+    <DIV id="footer_menu">
+        
+ <input type= button onclick="gohome();" class='nav_1' value = "首页"> <input type= button onclick="gowilldo();" class='nav_2'  value='待办'><div class='nav_3'>已完成</div><input class='nav_4'  type=button onclick="gocontact();" value="联系人">
+    </DIV>
+    
+    
+</body>
+
+</html>

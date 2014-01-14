@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script type="text/javascript" src="../cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/jquery_last_mini.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        
+        
+        <title>Viewdetail</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#F0F0F0;
+                
+                
+                
+            }
+            .s_content{
+                
+                
+            }
+            .sendticket{
+            
+            
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:2px;
+                margin-left:44%;
+                
+                background-color:#191919;
+               
+                width:50px;
+               
+                border:0px;
+                background-repeat:no-repeat;
+            }
+            #footer_menu{
+                position:fixed;
+                left: 0px;
+                right:0;
+                bottom: 0px;
+                border-top:1px solid #007410;
+                z-index: 1000;
+                width: 100%;
+                text-align: left;
+                background-color: #191919;
+                display:block;
+                
+                
+            }
+            .nav_1 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:28px;
+                background-color:#191919;
+                background-image:url("../img/homepage_n.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            
+            .nav_2 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:28px;
+                background-color:#19c231;
+                background-image:url("../img/dby_nav.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            .nav_3 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:24px;
+                background-color:#191919;
+                
+                background-image:url("../img/ywc_y.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+            .nav_4 {
+                
+                float:left;
+                
+                color: #fff;
+                
+                margin-top:0px;
+                margin-left:0px;
+                padding-top:32px;
+                padding-left:24px;
+                background-color:#191919;
+                background-image:url("../img/lzrn_nav.png");
+                height:1.9em;
+                width:4.5em;
+                font-size:12px;
+                
+            }
+
+            
+            .top_menu {
+                
+                right:0;
+                top:0;
+                width:100%;
+                position:fixed;
+                height:50px;
+                background-image:url("../img/top_bg.png");
+                padding-top:5px;
+                
+                
+                
+                
+            }
+            .t_title{
+                
+                text-align:left;
+                color:#fff;
+                font: normal 24px Arial, Helvetica;
+                margin-top:16px;
+                margin-right:0px;
+                
+                width:180px;
+                float:right;
+                
+                
+                
+            }
+            
+            
+            .searbox {
+                -webkit-transition-property: -webkit-box-shadow, background;
+                -webkit-transition-duration: 0.25s;
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#fff));
+                background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+                
+                border:1px solid #ccc;
+                margin-top:10px;
+                margin-bottom:10px;
+                margin-left:12px;
+                
+                
+                font-size:12px;
+                padding-left:20px;
+                color:#000;
+                background-image:url("../img/zoom.png");
+                background-repeat:no-repeat;
+                background-color:#FFF;
+                
+                
+            }
+            
+            
+            .backbutton{
+                
+                float:left;
+                border:0;
+                background-image:url("");
+                width: 1.5em;
+                height:2em;
+                
+                margin-top:18px;
+                
+                margin-left:22px;
+                background-repeat: repeat-y;
+            
+            }
+            
+            .previewbutton{
+            
+          
+                float:right;
+                margin-right:12px;
+                margin-top:10px;
+            
+            
+            }
+            
+            #info_list{
+                
+                width:320px;
+                background-image:url("../img/orderbg.png");
+                margin-top:30px;
+                
+                
+                padding-top:20px;
+                background-repeat:repeat;
+                
+                
+            }
+            .item_s{
+                
+                font: normal 18px Arial, Helvetica;
+                
+                width: 280px;
+                border-bottom:1px solid #c0c0c0;
+                text-align: left;
+                margin-left:20px;
+                margin-top:20px;
+                
+                
+                
+                
+                
+            }
+            .item_r{
+                
+                
+                text-align: right;
+                float:right;
+                
+            }
+            
+            a{text-decoration:none;}
+            
+            .btn_addPic{
+                margin-top:10px;
+                margin-left:30px;
+                margin-bottom:0px;
+                display: block;
+                position: relative;
+                width: 256px;
+                height: 144px;
+                overflow: hidden;
+                border: 1px solid #EBEBEB;
+                background: none repeat scroll 0 0 #F3F3F3;
+                color: #999999;
+                text-align: center;
+                background:url("../img/addpicbg.png") 0 0;
+            }
+            .btn_addPic span{
+                display: block;line-height: 39px;
+            
+            }
+            
+            .btn_addPic em {
+                background:url("../img/addpicbg.png") 0 0;
+                display: inline-block;
+                width: 256px;
+                height: 144px;
+                overflow: hidden;
+                margin: 10px 5px 10px 0;
+                line-height: 20em;
+                vertical-align: middle;
+            }
+            .btn_addPic:hover em{
+                background-position:-256px 0;
+            }
+            
+           
+            
+            .checkbox_v{
+             overflow: hidden;width:120px; height:auto;
+            }
+            
+            
+            .black_overlay {
+                display: none;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width:100%;
+                height:120%;
+                background-color:#000;
+                z-index:9998;
+                -moz-opacity: 0.8;
+                opacity:.80;
+                filter: alpha(opacity=80);
+            
+            }
+            .white_content {
+                display: none;
+                top: 20%;
+                left: 0;
+                width: 280px;
+                height: auto;
+                background-color:#f0f0f0;
+                border:1px solid #e4e4e4;
+                z-index:9999;
+                color:#fff;
+                margin-left:20px;
+                margin-bottom:10px;
+                border-radius:10px;
+                padding-bottom:5px;
+                position: absolute;
+            
+            }
+            .close {
+                float:right;
+                clear:both;
+                width:100%;
+                text-align:right;
+                margin:0 0 6px 0;
+                color:#0096ff;
+                font-size:21px;
+                padding:5px;
+                
+            }
+            .close a {
+                color:#0096ff;
+                text-decoration:none;
+                font-size:21px;
+                padding:5px;
+                border-top:1px solid #ccc;
+                           }
+            
+            .con {
+                
+                text-indent:1.5pc;
+                
+                color:#000;
+                margin-top:50px;
+                background-color:#f0f0f0;
+                z-index:9999;
+                height:300px;
+                overflow:auto;
+                border-top-left-radius:0px;
+                border-top-right-radius:0px;
+                border-bottom-right-radius:10px;
+                border-bottom-left-radius:10px;
+              
+                bottom:0px;
+              
+            }
+            
+            .button{
+                
+                width:280px;
+                height:60px;
+                background-color:#e4e4e4;
+                margin-top:30px;
+                font-size:20px;
+                padding:15px;
+                background:url("../img/ubuttonbg.png");
+                color:#0096ff;
+                float:left;
+                border:0;
+                
+            }
+            
+            .scheckbox{
+                
+                
+                
+            }
+            
+            .scheckbox lable{
+                
+                float:left;
+                width: 200px;
+                font: normal 18px Arial, Helvetica;
+                line-height:20px;
+                margin-bottom:15px;
+                margin-left:15px;
+                text-align:left;
+                
+                background: #f0f0f0;
+           
+                border-radius: 6px;
+                cursor: pointer;
+                color:#000;
+                
+            }
+            
+            
+            
+            .scheckbox input{
+                
+                
+                width:20px;
+                height:20px;
+                font: normal 18px Arial, Helvetica;
+                line-height:20px;
+                margin-bottom:15px;
+                margin-right:15px;
+                text-align:left;
+                
+                
+          
+                border-radius: 10px;
+                cursor: pointer;
+                
+                
+            }
+            
+            .scheckbox input:checked+lable{
+                
+                background: #0096ff;
+                
+                color: #000;
+                
+                
+            }
+            
+            .r_u_button{
+                
+                width:140px;
+                height:40px;
+                background-color:#f0f0f0;
+                background-image:url("../img/ubuttonbg.png");
+                color:#0096ff;
+                font-size:16px;
+                padding:8px;
+                float:left;
+                
+                border-top-left-radius:0px;
+                border-top-right-radius:0px;
+                border-bottom-right-radius:10px;
+                border-bottom-left-radius:0px;
+                border-top:1px solid #ccc;
+                border-right:0px;
+                border-left:1px;
+                border-bottom:0px;
+                
+                
+            }
+            
+            .l_u_button{
+                width:140px;
+                height:40px;
+                background-color:#f0f0f0;
+                background-image:url("../img/ubuttonbg.png");
+                color:#0096ff;
+                font-size:16px;
+             
+                float:left;
+                border-top-left-radius:0px;
+                border-top-right-radius:0px;
+                border-bottom-right-radius:0px;
+                border-bottom-left-radius:10px;
+                border-top:1px solid #ccc;
+                border-right:1px solid #ccc;
+                border-left:0px;
+                border-bottom:0px;
+                margin-bottom:0px;
+                
+                
+                
+            }
+            
+            
+            .selectbutton{
+                
+                width:220px;
+                padding: 5px;
+              
+               
+                font-size: 18px;
+                line-height: 1;
+                border: 0;
+                border-radius: 0;
+                height: 28px;
+                -webkit-appearance: none;
+                overflow: hidden;
+                border: 0px;
+                float:right;
+                text-align:right;
+                
+                
+            }
+            
+            .e_bottom{
+                
+             background:url("../img/b_bottom.png") no-repeat;
+             display:block;
+             height:25px;
+             margin-left:1px;
+            }
+            .t_titlec{
+                
+                text-align:center;
+                color:#0096ff;
+                font: normal 24px Arial, Helvetica;
+                padding:10px;
+                width:260px;
+                float:left;
+                
+                border-bottom:1px solid #ccc;
+                background-color:#f0f0f0;
+                
+                border-top-left-radius:10px;
+                border-top-right-radius:10px;
+                box-shadow: inset 0 -1px 0 rgba(255,255,255,.1);
+            }
+  
+
+            </style>
+    </head>
+    <body>
+       
+        <iframe width="0" height="0" name="actionframe"></iframe>
+        <div class="top_menu">
+            
+            <input type=image src="../img/back.png" class="backbutton" onclick="javascript:history.go(-1);">
+             
+                <div class="t_title">
+                   填单
+                </div>
+                    
+        
+        </div>
+        
+        
+        
+        <div id="info_list">
+            
+        </div>
+        
+  <div style="width:320px;background-image:url('../img/b_bottom.png'); height:25px; background-repeat:no-repeat;margin-left:1px;">&nbsp;</div>
+        
+        <script>
+            //alert(localStorage.j_username);
+            var url = location.href;
+            var strs;
+            strs=url.split("?");
+            var v_checked;
+            var fchecked = "";
+            var g_imageURI;
+            var f_where;
+
+            
+            $(function() {
+
+              getbaseinfo();
+            
+                                              
+              });
+            
+            
+            
+            function getbaseinfo(){
+            
+            
+            
+                
+                var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?" + strs[1];
+                
+                //var contact = "http://10.0.0.61:8015/Pages/Json.aspx?SignfarmID=25&farm_state=2";
+                
+                
+                
+                
+                
+                $.getJSON(
+                          jcontact,
+                          function(data) {
+                          $.each(data, function(i, item) {
+                                 
+                                 v_checked = item.MaterialIDs;
+                              
+                                 localStorage.j_fid = item.fid;
+                                 localStorage.j_v_checked = v_checked;
+                                 
+                                 //alert(v_checked);
+                                 // $("#info_list").append("<form method='post' enctype='multipart/form-data' name='myform'  id='myform' target='actionframe'><div class=item_s><lable>地块:</lable><span class=item_r>" + item.LandName + "</span></div>" + "<div class=item_s><lable>农事:</lable><span class=item_r>" + item.fct_farmname + "</span></div>" + "<div class=item_s> <lable>农资:</lable>" + fchecked  + "</div>" + "<div class=item_s><lable>截止日期:</lable><span class=item_r>" + item.Farm_endtime + "</span></div>" + "<a class='btn_addPic'  href='javascript:void(0);'><span><em>+</em></span> <input class='filePrew' title='支持jpg、jpeg、gif、png格式，文件小于5M' tabindex='3' id='l_file' name='Upd_farm' size='3' type='file' ></a></form>" );
+                                 
+                                 $("#info_list").append("<div class=item_s><lable>地块:</lable><span class=item_r>" + item.LandName + "</span></div>" + "<div class=item_s><lable>农户:</lable><span class=item_r>" + item.farmername + "</span></div>"+"<div class=item_s><lable>农事:</lable><span class=item_r>" + item.fct_farmname + "</span></div>" + "" + "<div class=item_s> <lable>农资:</lable>" + "<input value='单击添加' class='selectbutton' type=button id='nzlist' onclick='getnzlist();'>" + "</div>" + "<div class=item_s><lable>截止日:</lable><span class=item_r>" + item.Farm_endtime + "</span></div>" + "<a  onclick='loadImage()' href='javascript:void(0);'><div id='ssssss' class='btn_addPic' > <img style='display:none;width:280px;' id='largeImage'  src='' /><img style='display:none;width:280px;'  id='smallImage' src='' /></div></a>" );
+                                 
+                                 
+                                 
+                                 
+                                 });
+                          
+                          
+                          });
+                
+                
+
+            
+            }
+            
+            function Delnz_list(){
+             
+                $("#nzitems").remove();
+                hide('nz');
+                
+                window.location.reload(); 
+            }
+
+            
+            function loadImage(){
+                //alert("gogogogogogo");
+                getchecked_v();
+               //window.location.href="../upload/upload22.html";
+                
+               show('opencarmra');
+  
+            
+            }
+            
+            function  savenzinfo(){
+            
+            
+                var s='';
+                var b='';
+                $('input[name="checkbox"]:checked').each(function(){
+                                                         s+=$(this).val()+'|';
+                                                         b += $(this).next('lable').html()+',';
+                                                         });
+                //alert(s==''?'你还没有选择任何内容！':s);
+                //alert(b==''?'你还没有选择任何内容！':b);
+                
+                localStorage.j_m = s;
+                
+                document.getElementById("nzlist").value = b;
+                
+                
+                
+                hide('nz');
+                
+                
+            
+            }
+            
+            function getnzlist(){
+            
+                //alert(">>>"+ v_checked);
+            
+          
+                
+                show('nz');
+                
+                fchecked = "";
+                
+                fchecked += "<div id='nzitems' class='scheckbox' ><br>";
+                
+                ch = new Array;
+                
+                ch = v_checked.split(",");
+                
+                for(i=0;i<ch.length;i++){
+                    var ff = getvid(ch[i]);
+                    
+                    ch[i] = ch[i].replace("|"," id='"+ ff +"' value=");
+                    ch[i] = ch[i].replace("|1|"," checked='true'><lable >");
+                    ch[i] = ch[i].replace("|0|"," ><lable>");
+                    ch[i] = "<input  name='checkbox' type='checkbox'" + ch[i];
+                    ch[i] = ch[i].replace("|","</lable>");
+                   
+                    fchecked += ch[i];
+                    
+                    
+                }
+                
+                fchecked +="</div>";
+                
+                //console.log(fchecked);
+                
+                $("#nzitems").remove();
+                
+                $("#zzzzzz").append(fchecked);
+            
+            }
+            
+            function getvid(str){
+            
+                
+                //var v_id ="|1|0|宜化复合肥料|";
+            
+                var v_id = str.substring(1,2);
+                
+                return v_id;
+            
+            
+            }
+            function sendDB(){
+                
+                
+                
+                var path = document.getElementById("l_file").value;
+                
+                //alert(path);
+               if( path == ""  ){
+                    
+                   show('light');
+                                                           
+                    //window.location.href="../willdo/index_z.html";
+                }else{
+
+                    var url ="http://10.0.0.61:8015/Pages/Json.aspx?savefarmID="+localStorage.j_username+"&MaterialIDs="+s+"&FID="+ localStorage.j_fid;
+                    // alert(url);
+                    
+                    
+                    document.getElementById("myform").action = url;
+                    document.getElementById("myform").submit();
+                    window.location.href="../willdo/index_z.html";
+                
+                    
+                    
+
+                }
+                
+                //alert("farmerID:"+localStorage.j_username + ">>>>fid"+ localStorage.j_fid+">>>>>>path" + path+ ">>>>>>>checked"+ localStorage.j_v_checked);
+                
+
+            }
+                    
+                       
+            
+            function getchecked_v(){
+                
+                var s='';
+                var b='';
+                
+                $('input[name="checkbox"]:checked').each(function(){
+                                                         s+=$(this).val()+'|';
+                                                         
+                                                         });
+                
+                
+                
+                //alert(s==''?'你还没有选择任何内容！':s);
+                
+                localStorage.j_m = s;
+                
+                //alert(localStorage.j_m);
+
+            
+            }
+            
+            function show(tag){
+                
+                var light=document.getElementById(tag);
+                var opencarmra = document.getElementById(tag);
+                var fade=document.getElementById('fade');
+                fade.style.display='block';
+                light.style.display='block';
+                
+
+            
+            }
+            function hide(tag){
+                var light=document.getElementById(tag);
+                 var opencarmra = document.getElementById(tag);
+                var fade=document.getElementById('fade');  
+                light.style.display='none';
+                fade.style.display='none';
+            }
+            
+            // Wait for Cordova to connect with the device
+            //
+            document.addEventListener("deviceready",onDeviceReady,false);
+            
+            // Cordova is ready to be used!
+            //
+            function onDeviceReady() {
+                pictureSource=navigator.camera.PictureSourceType;
+                destinationType=navigator.camera.DestinationType;
+            }
+            
+            
+            function getPhoto0(){
+                
+                navigator.camera.getPicture(uploadPhoto,
+                                            function(message) {  navigator.notification.alert('请选择图片',alertDismissed,'提示','确定'); },
+                                            { quality: 50,allowEdit: true,
+                                            destinationType: navigator.camera.DestinationType.FILE_URI,
+                                            sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                            );
+                              
+                hide('opencarmra');
+                
+                f_where = "LIBRARY";
+                
+                //navigator.notification.alert(f_where);
+            }
+            
+            
+            function uploadPhoto(imageURI) {
+                
+                
+                // Uncomment to view the image file URI
+                // console.log(imageURI);
+                
+                // Get image handle
+                //var largeImage = document.getElementById('largeImage');
+                var largeImage = document.getElementById('largeImage');
+                
+                // Unhide image elements
+                //
+                largeImage.style.display = 'block';
+                
+                // Show the captured photo
+                // The inline CSS rules are used to resize the image
+                //
+                largeImage.src = imageURI;
+                
+                g_imageURI = imageURI;
+                
+                //alert(">>>");
+           }
+            
+            function win(r) {
+                console.log("Code = " + r.responseCode);
+                console.log("Response = " + r.response);
+                console.log("Sent = " + r.bytesSent);
+            }
+            
+            function fail(error) {
+                navigator.notification.alert("An error has occurred: Code = " + error.code);
+                console.log("upload error source " + error.source);
+                console.log("upload error target " + error.target);
+            }
+            
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoDataSuccess(imageData) {
+                // Uncomment to view the base64 encoded image data
+                // console.log(imageData);
+                
+                // Get image handle
+                //
+                var smallImage = document.getElementById('largeImage');
+                
+                // Unhide image elements
+                //
+                smallImage.style.display = 'block';
+                
+                // Show the captured photo
+                // The inline CSS rules are used to resize the image
+                //
+                //smallImage.src = "data:image/jpeg;base64," + imageData;
+                
+                smallImage.src = imageData;
+                
+               
+                
+                 g_imageURI = imageData;
+                
+                 //$("#ssssss").append(g_imageURI);
+                
+                 //alert(g_imageURI);
+
+            }
+      
+            
+            // A button will call this function
+            //
+            function capturePhoto() {
+            
+                
+                f_where = "CARMRA";
+                
+                //navigator.notification.alert(f_where);
+                
+                // Take picture using device camera and retrieve image as base64-encoded string
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 30,allowEdit: true,destinationType: destinationType.FILE_URI });
+                
+                hide('opencarmra');
+                
+            
+                
+            }
+            
+            function onFail(message) {
+                //alert('Failed because: ' + message);
+                navigator.notification.alert(message,alertDismissed,"提示","确定");
+                
+            }
+            
+            function alertDismissed() {
+                // 进行处理
+            }
+            
+            function saveticket(){
+    
+                
+                if(g_imageURI == null){
+                    
+                navigator.notification.alert("请上传图片",alertDismissed,"提示","确定");
+                
+                }
+             
+                var l_url ="http://10.0.0.61:8015/Pages/Json.aspx?savefarmID="+ localStorage.j_username;
+                var options = new FileUploadOptions();
+                options.fileKey="Upd_farm";
+                options.fileName = g_imageURI.substr(g_imageURI.lastIndexOf('/')+1);
+                options.mimeType="image/jpeg";
+                var params = {};
+                params.FID = localStorage.j_fid;
+                params.MaterialIDs = localStorage.j_m;
+                
+                //alert(params.FID + params.MaterialIDs);
+                
+                options.params = params;
+                var ft = new FileTransfer();
+                
+                //alert(l_url);
+                ft.upload(g_imageURI, encodeURI(l_url), win, fail, options);
+                
+                navigator.notification.alert('完成本次填单',alertDismissed,'提示','确定');
+                
+                //alert(localStorage.j_grade);
+                if(localStorage.j_grade =="中心户"){
+                    
+                    
+                    setTimeout("window.location='"+'../willdo/index_z.html'+"'",2000);
+                    
+                }else{
+                    
+                    setTimeout("window.location='"+'../willdo/index.html'+"'",2000);
+                    
+                }
+                
+                            
+            }
+            </script>
+        
+    
+
+      
+        <div id="light" class="white_content">
+            <div class="close"><a href="javascript:void(0)" onclick="hide('light')">关闭</a></div>
+            <div class="con">   
+                <h3 style="color:#000;">您还没有上传图片</h3>
+            </div>
+        </div>
+        
+        <div id="opencarmra" class="white_content">
+            <div class="close"><a href="javascript:void(0)" onclick="hide('opencarmra')">关闭</a></div>
+            <div class="con" >
+              
+                <button class='button' onclick="getPhoto0()">相册图片</button>
+                <button class='button' onclick="capturePhoto();">拍照上传</button>
+            
+            </div>
+          
+        </div>
+        
+        
+        <div id="nz" class="white_content">
+            <div class="t_titlec">选择农资
+            </div>
+            
+            <div class="con" id="zzzzzz">
+        </div>
+            <DIV style="float:left;position:absolute;bottom:0px;" >
+            <input type=button  class='l_u_button' onclick='savenzinfo();' value='确定'> <input class='r_u_button' type=button onclick='Delnz_list();' value='取消'>
+                </DIV>
+        </div>
+        
+        
+      <div id="fade" class="black_overlay" > </div>
+        
+        
+        <DIV id="footer_menu">
+            
+            <input type=image src="../img/saveticket.png" onclick="saveticket();" class='sendticket'  value='保存'></div>
+        
+    </body>
+</html>
