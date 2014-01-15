@@ -5,46 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F55DA1CC-1DCF-4BED-BE80-B42CDC71691F</string>
+	<string>BA687395-CBC1-47E8-A9D7-5A3BEEE22764</string>
 	<key>IDESourceControlProjectName</key>
 	<string>tlhapp2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8686B40C-B015-4035-AD34-830A97CB69B0</key>
-		<string>https://github.com/mobileapp2test/tlhappnew.git</string>
-		<key>9D2FC6FB-A5EF-4751-9062-B277AA8C00A1</key>
-		<string>ssh://github.com/Peter-S-China/tlhappnew_push_message.git</string>
+		<key>AD27354F-E409-428F-B9BA-B7F9CF7A7F7B</key>
+		<string>https://github.com/Peter-S-China/tlhappnew_push_message.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>tlhappnew_push_message/tlhapp2.xcodeproj/project.xcworkspace</string>
+	<string>tlhapp2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8686B40C-B015-4035-AD34-830A97CB69B0</key>
-		<string>../../..</string>
-		<key>9D2FC6FB-A5EF-4751-9062-B277AA8C00A1</key>
+		<key>AD27354F-E409-428F-B9BA-B7F9CF7A7F7B</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/Peter-S-China/tlhappnew_push_message.git</string>
+	<string>https://github.com/Peter-S-China/tlhappnew_push_message.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8686B40C-B015-4035-AD34-830A97CB69B0</string>
+	<string>AD27354F-E409-428F-B9BA-B7F9CF7A7F7B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8686B40C-B015-4035-AD34-830A97CB69B0</string>
-			<key>IDESourceControlWCCName</key>
-			<string>tlhappnew</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9D2FC6FB-A5EF-4751-9062-B277AA8C00A1</string>
+			<string>AD27354F-E409-428F-B9BA-B7F9CF7A7F7B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>tlhappnew_push_message</string>
 		</dict>
