@@ -362,8 +362,14 @@
                 var pushNotification = window.plugins.pushNotification;
                 pushNotification.registerDevice({alert:true, badge:true, sound:true}, function(status) {
                                     console.log("deviceToken:>>>>>>>" + status.deviceToken);
-                                    app.myLog.value +=JSON.stringify(['registerDevice status: ', status])+"\n";
-                                    app.storeToken(status.deviceToken);
+                                  
+                                   if(status.deviceToken != null){
+                                                localStorage.j_deviceToken = status.deviceToken;
+                                                }else{
+                                                
+                                                localStorage.j_deviceToken ="";
+                                                }
+
                                                 
                                                 });
             }
