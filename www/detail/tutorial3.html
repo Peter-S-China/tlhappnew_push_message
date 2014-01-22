@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jcrop Demo</title>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+<script type="text/javascript" src="../cordova-2.5.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/jquery_last_mini.js"></script>
+ 
+ 
+</head>
+<body>
+    <script>
+        jQuery(function($){
+               
+                alert(">>>"+localStorage.f_imageURI);
+               
+               var image = document.getElementById('myImage');
+               image.src = localStorage.f_imageURI;
+
+               
+             window.imageResizer.storeImage(successCallBack, failCallBack, imageData, options);
+
+               });
+
+     </script>
+
+
+<img src="" id="myImage" alt="[Jcrop Example]" style="margin:0px;padding:0px;width:320px; top:0px;left:0px;" />
+
+<div style=" position:fixed;
+    left: 0px;
+    right:0;
+    bottom: 0px;
+    border-top:1px solid #007410;
+    z-index: 1000;
+    width: 100%;
+    text-align: center;
+    background-color: #191919;
+    display:block;
+    font-size:20px;
+    height:32px;" >
+    <button sytle='background:url("../img/ubuttonbg.png");width: 100%;' onclick="getresizeimg()">保存图片</button></div>
+
+</body>
+</html>
+

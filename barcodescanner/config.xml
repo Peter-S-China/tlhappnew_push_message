@@ -39,6 +39,7 @@
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
         <plugin name="BarcodeScanner" value="CDVBarcodeScanner"/>
         <plugin name="PushNotification" value="PushNotification"/>
+        <plugin name="com.webXells.imageResizer" value="ImageResize" />
         
     </plugins>
 

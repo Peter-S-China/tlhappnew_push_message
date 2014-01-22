@@ -61,6 +61,7 @@ static NSSet* org_apache_cordova_validArrowDirections;
  *  8       correctOrientation
  *  9       saveToPhotoAlbum
  */
+    
 - (void)takePicture:(CDVInvokedUrlCommand*)command
 {
     NSString* callbackId = command.callbackId;
@@ -73,6 +74,7 @@ static NSSet* org_apache_cordova_validArrowDirections;
     if (sourceTypeString != nil) {
         sourceType = (UIImagePickerControllerSourceType)[sourceTypeString intValue];
     }
+    
 
     bool hasCamera = [UIImagePickerController isSourceTypeAvailable:sourceType];
     if (!hasCamera) {

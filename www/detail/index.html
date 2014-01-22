@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
+          <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+        
+        <script type="text/javascript" src="../cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+        
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.imgareaselect.pack.js"></script>
+
+
+        
+     <title>HomePage</title>
+  
+    </head>
+     <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+            }
+            
+            body {
+                background-color:#F0F0F0;
+                
+                
+                
+            }
+           
+            .black_overlay {
+                display: block;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width:100%;
+                height:120%;
+                background-color:#000;
+                z-index:9998;
+                -moz-opacity: 0.8;
+                opacity:.80;
+                filter: alpha(opacity=80);
+            
+            }
+      
+        .white_photo {
+            display: block;
+            top:0;
+            left:0;
+            width:320px;
+            height:auto;
+            
+           
+            z-index:9999;
+            color:#fff;
+        
+            position: absolute;
+            
+        }
+        
+        
+        
+        .c2 {
+            float:left;
+            width:60px;
+            text-align:center;
+            margin:0 0 6px 0;
+            color:#0096ff;
+            font-size:21px;
+            padding:5px;
+        
+            margin:2px;
+            bottom:0px;
+            position:fixed;
+            left:0px;
+        }
+        .c2 a {
+            color:#0096ff;
+            text-decoration:none;
+            font-size:21px;
+            padding:5px;
+          
+        }
+        
+        .c3 {
+            float:right;
+           
+            width:60px;
+            text-align:center;
+            margin:0 0 6px 0;
+            color:#0096ff;
+            font-size:21px;
+            padding:5px;
+            
+            margin:2px;
+            bottom:0px;
+            position:fixed;
+            right:0px;
+        }
+        .c3 a {
+            color:#0096ff;
+            text-decoration:none;
+            font-size:21px;
+            padding:5px;
+            
+        }
+        
+       
+        
+        .resizecon {
+            
+            color:#000;
+            background-color:#f0f0f0;
+            z-index:9999;
+           
+            overflow:auto;
+            position:fixed;
+            top:0px;
+            left:0px;
+        }
+
+
+
+    
+            </style>
+     <script type="text/javascript" charset="utf-8">
+         var pictureSource;   // picture source
+         var destinationType; // sets the format of returned value
+         
+         // Wait for Cordova to connect with the device
+         //
+         document.addEventListener("deviceready",onDeviceReady,false);
+         
+         // Cordova is ready to be used!
+         //
+         function onDeviceReady() {
+             pictureSource=navigator.camera.PictureSourceType;
+             destinationType=navigator.camera.DestinationType;
+             
+             getPhoto(pictureSource.PHOTOLIBRARY);
+             
+            
+         }
+     
+        $(window).load(function(){
+                    
+                    // 将你希望在页面完全就绪之后运行的代码放在这里
+                
+                    $('#largeImage').imgAreaSelect({ aspectRatio: '4:3', handles: true });
+
+                    });
+
+                     
+                     
+                     
+     
+     // Called when a photo is successfully retrieved
+     //
+     function onPhotoDataSuccess(imageData) {
+         // Uncomment to view the base64 encoded image data
+         // console.log(imageData);
+         
+         // Get image handle
+         //
+         var smallImage = document.getElementById('smallImage');
+         
+         // Unhide image elements
+         //
+         smallImage.style.display = 'block';
+         
+         // Show the captured photo
+         // The inline CSS rules are used to resize the image
+         //
+         smallImage.src = "data:image/jpeg;base64," + imageData;
+     }
+     
+     // Called when a photo is successfully retrieved
+     //
+     function onPhotoURISuccess(imageURI) {
+         // Uncomment to view the image file URI
+         // console.log(imageURI);
+         
+         // Get image handle
+         //
+         var largeImage = document.getElementById('largeImage');
+         
+         // Unhide image elements
+         //
+         largeImage.style.display = 'block';
+         
+         // Show the captured photo
+         // The inline CSS rules are used to resize the image
+         //
+         largeImage.src = imageURI;
+     }
+     
+     // A button will call this function
+     //
+     function capturePhoto() {
+         // Take picture using device camera and retrieve image as base64-encoded string
+         navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+                                     destinationType: destinationType.DATA_URL });
+     }
+     
+     // A button will call this function
+     //
+     function capturePhotoEdit() {
+         // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
+         navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+                                     destinationType: destinationType.DATA_URL });
+     }
+     
+     // A button will call this function
+     //
+     function getPhoto(source) {
+         // Retrieve image file location from specified source
+         navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+                                     destinationType: destinationType.FILE_URI,
+                                     sourceType: source });
+     }
+     
+     // Called if something bad happens.
+     // 
+     function onFail(message) {
+         alert('Failed because: ' + message);
+     }
+     
+     function goback(){
+     
+      //setTimeout("window.location='"+'./editdetail.html'+"'",1000);
+     
+     }
+   
+
+        
+        
+            </script>
+        
+    <body >
+      <div id="resizephoto" class="white_photo">
+            
+            <div class="resizecon" >
+                
+        <img style="display:none;border:1px solid #ccc;width:320px;margin-top:20px;" id="largeImage" src="" />
+                
+            </div>
+            
+           <div class="c2"><a href="javascript:void(0)" onclick="goback();">关闭</a></div>
+           <div class="c3"><a href="javascript:void(0)" onclick="">确定</a>
+           </div>
+
+    </body>
+</html>

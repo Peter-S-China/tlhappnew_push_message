@@ -65,6 +65,8 @@
   
             $(function() {
               
+              
+              
               var jcontact = localStorage.j_url;
               
               //alert(jcontact);
@@ -122,18 +124,24 @@
                                }
                                
                                else if(data[i].result == "0"){
-                             
-                                                                
-                                   $("#smessage").append("<h3>"+ data[i].grade +"</h3>");
                                
-                                 //console.log(">>>>>"+ data[i].grade);
+                               postdevicetoken();
+                              
+                               $("#smessage").append("<h3>"+ data[i].grade +"</h3>");
+                               
                                
                                   localStorage.j_grade = data[i].grade;
                                   localStorage.j_Groupname = data[i].Groupname;
                                   localStorage.j_GroupID = data[i].GroupID;
                                   localStorage.j_rusername = data[i].username;
                                
-                                   setTimeout("window.location='"+'./main.html'+"'",2000);
+                               
+                             
+                               
+                    setTimeout("window.location='"+'./main.html'+"'",2000);
+    
+                         
+                               
                                
                                   //window.location.href="./progress-bar/index.html";
                                 
@@ -152,7 +160,27 @@
                         });
               });
             
+            function postdevicetoken(){
             
+            
+             
+            var sturl = "http://10.0.0.61:8015/Pages/Json.aspx?phoneuserid="+ localStorage.j_username+"|1&tokencode="+ localStorage.j_deviceToken;
+            
+            //alert(sturl);
+            
+            
+            
+            $.post(sturl,function(data){
+                  
+                   console.log(data);
+                   
+                   
+                   }, "json");
+
+   
+            }
+        
+        
             </script>
         
         

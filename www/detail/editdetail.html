@@ -27,12 +27,16 @@
         <script type="text/javascript" src="../cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script src="js/jquery_last_mini.js"></script>
-        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script type="text/javascript" src="../js/imageresize.js"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         
         
-        <title>Viewdetail</title>
-        <style>
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.Jcrop.js"></script>
+        <link rel="stylesheet" href="css/jquery.Jcrop.css">
+     
+     <title>editdetail</title>
+       <style>
             * {
                 margin: 0px;
                 padding: 0px;
@@ -272,15 +276,18 @@
                 margin-bottom:0px;
                 display: block;
                 position: relative;
-                width:256px;
-                height:220px;
+                width:270px;
+                height:180px;
                 overflow: hidden;
-                padding:1px;
-                background:no-repeat;
+                padding-top:10px;
                 color: #999999;
                 text-align: center;
-                background:url("../img/addpicbg.png") 0 0;
-               
+                
+                background-image:url("../img/addpicbg.png");
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+                background-position:46px 256px;
+            
             }
         
         
@@ -341,7 +348,71 @@
                 position: absolute;
             
             }
-            .close {
+        
+        .white_photo {
+            display: none;
+            top:0;
+            left:0;
+            width:320px;
+            height:auto;
+            
+           
+            z-index:9999;
+            color:#fff;
+        
+            position: absolute;
+            
+        }
+        
+        
+        
+        .c2 {
+            float:left;
+            width:60px;
+            text-align:center;
+            margin:0 0 6px 0;
+            color:#0096ff;
+            font-size:21px;
+            padding:5px;
+        
+            margin:2px;
+            bottom:0px;
+            position:fixed;
+            left:0px;
+            
+        }
+        .c2 a {
+            color:#0096ff;
+            text-decoration:none;
+            font-size:21px;
+            padding:5px;
+          
+        }
+        
+        .c3 {
+            float:right;
+           
+            width:60px;
+            text-align:center;
+            margin:0 0 6px 0;
+            color:#0096ff;
+            font-size:21px;
+            padding:5px;
+            
+            margin:2px;
+            bottom:0px;
+            position:fixed;
+            right:0px;
+        }
+        .c3 a {
+            color:#0096ff;
+            text-decoration:none;
+            font-size:21px;
+            padding:5px;
+            
+        }
+        
+           .close {
                 float:right;
                 clear:both;
                 width:100%;
@@ -361,9 +432,7 @@
                            }
             
             .con {
-                
                 text-indent:1.5pc;
-                
                 color:#000;
                 margin-top:50px;
                 background-color:#f0f0f0;
@@ -374,11 +443,23 @@
                 border-top-right-radius:0px;
                 border-bottom-right-radius:10px;
                 border-bottom-left-radius:10px;
-              
                 bottom:0px;
-              
-            }
+              }
+        
+        .resizecon {
             
+            color:#000;
+            background-color:#f0f0f0;
+            z-index:9992;
+           
+            overflow:auto;
+            position:fixed;
+            top:0px;
+            left:0px;
+        }
+
+
+
             .button{
                 
                 width:280px;
@@ -539,9 +620,11 @@
                 box-shadow: inset 0 -1px 0 rgba(255,255,255,.1);
             }
   
-
+  
+  
             </style>
     </head>
+    
     <body>
        
         <iframe width="0" height="0" name="actionframe"></iframe>
@@ -574,26 +657,38 @@
             var g_imageURI;
             var f_where;
 
-            
-            $(function() {
 
-              getbaseinfo();
-            
-                                              
-              });
             
             
-            
+            jQuery(function($){
+                   
+                   getbaseinfo();
+                   
+                   var jcrop_api,
+                   boundx,
+                   boundy,
+                   
+                   // Grab some information about the preview pane
+                   $preview = $('#ssssss'),
+                   $pcnt = $('#ssssss .sbsbsb'),
+                   $pimg = $('#ssssss .sbsbsb img'),
+                   
+                   xsize = $preview.width(),
+                   ysize = $preview.height();
+                   
+               
+                 
+                   });
+                   
+                   
             function getbaseinfo(){
             
             
             
                 
-                var jcontact = "http://10.0.0.61:8015/Pages/Json.aspx?" + strs[1];
+                var jcontact = "http://pt.hbtlh.com/Pages/Json.aspx?" + strs[1];
                 
-                //var contact = "http://10.0.0.61:8015/Pages/Json.aspx?SignfarmID=25&farm_state=2";
-                
-                
+                //var contact = "http://pt.hbtlh.com/Pages/Json.aspx?SignfarmID=25&farm_state=2";
                 
                 
                 
@@ -610,7 +705,7 @@
                                  //alert(v_checked);
                                  // $("#info_list").append("<form method='post' enctype='multipart/form-data' name='myform'  id='myform' target='actionframe'><div class=item_s><lable>地块:</lable><span class=item_r>" + item.LandName + "</span></div>" + "<div class=item_s><lable>农事:</lable><span class=item_r>" + item.fct_farmname + "</span></div>" + "<div class=item_s> <lable>农资:</lable>" + fchecked  + "</div>" + "<div class=item_s><lable>截止日期:</lable><span class=item_r>" + item.Farm_endtime + "</span></div>" + "<a class='btn_addPic'  href='javascript:void(0);'><span><em>+</em></span> <input class='filePrew' title='支持jpg、jpeg、gif、png格式，文件小于5M' tabindex='3' id='l_file' name='Upd_farm' size='3' type='file' ></a></form>" );
                                  
-        $("#info_list").append("<div class=item_s><lable>地块:</lable><span class=item_r>" + item.LandName + "</span></div>" + "<div class=item_s><lable>农户:</lable><span class=item_r>" + item.farmername + "</span></div>"+"<div class=item_s><lable>农事:</lable><span class=item_r>" + item.fct_farmname + "</span></div>" + "" + "<div class=item_s> <lable>农资:</lable>" + "<input value='单击添加' class='selectbutton' type=button id='nzlist' onclick='getnzlist();'>" + "</div>" + "<div class=item_s><lable>截止日:</lable><span class=item_r>" + item.Farm_endtime + "</span></div>" + "<a  onclick='loadImage()' href='javascript:void(0);'><div id='ssssss' class='btn_addPic' ><img style='display:none;padding-left:20px;' id='largeImage'  src='' onload='SetSize(this,220,220)'/><img style='display:none;padding-left:20px;'  id='smallImage' src='' onload='SetSize(this,220,220)'/></div></a>" );
+        $("#info_list").append("<div class=item_s><lable>地块:</lable><span class=item_r>" + item.LandName + "</span></div>" + "<div class=item_s><lable>农户:</lable><span class=item_r>" + item.farmername + "</span></div>"+"<div class=item_s><lable>农事:</lable><span class=item_r>" + item.fct_farmname + "</span></div>" + "" + "<div class=item_s> <lable>农资:</lable>" + "<input value='单击添加' class='selectbutton' type=button id='nzlist' onclick='getnzlist();'>" + "</div>" + "<div class=item_s><lable>截止日:</lable><span class=item_r>" + item.Farm_endtime + "</span></div>" + "<a  onclick='loadImage()' href='javascript:void(0);'><div class='btn_addPic'><img style='' id='targetimage' src='' /></div></a>" );
                                  
                                  
                                  
@@ -733,7 +828,7 @@
                     //window.location.href="../willdo/index_z.html";
                 }else{
 
-                    var url ="http://10.0.0.61:8015/Pages/Json.aspx?savefarmID="+localStorage.j_username+"&MaterialIDs="+s+"&FID="+ localStorage.j_fid;
+                    var url ="http://pt.hbtlh.com/Pages/Json.aspx?savefarmID="+localStorage.j_username+"&MaterialIDs="+s+"&FID="+ localStorage.j_fid;
                     // alert(url);
                     
                     
@@ -807,14 +902,24 @@
             
             function getPhoto0(){
                 
-                navigator.camera.getPicture(uploadPhoto,
-                                            function(message) {  navigator.notification.alert('请选择图片',alertDismissed,'提示','确定'); },
-                                            { quality: 50,allowEdit: true,
-                                            destinationType: navigator.camera.DestinationType.FILE_URI,
-                                            sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                
+       // var popover = new CameraPopoverOptions(300,300,100,100,Camera.PopoverArrowDirection.ARROW_ANY);
+
+          //popoverOptions:popover allowEdit:true,
+          
+        navigator.camera.getPicture(uploadPhoto,
+                                            function(message) { navigator.notification.alert('请选择图片',alertDismissed,'提示','确定'); },
+                                    { quality:50,destinationType: navigator.camera.DestinationType.FILE_URI,
+                                            sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY}
                                             );
                               
+                
                 hide('opencarmra');
+                
+                show('resizephoto');
+                
+                
+               
                 
                 f_where = "LIBRARY";
                 
@@ -841,9 +946,17 @@
                 //
                 largeImage.src = imageURI;
                 
+                //$('#largeImage').css("width","320px");
+                //$('#largeImage').css("margin-top","20px");
+                
                 g_imageURI = imageURI;
                 
-                //alert(">>>");
+                //localStorage.f_imageURI = g_imageURI;
+        
+        $("#imgedit").append("<a href='javascript:void(0)' onclick='resizephoto();'>编辑</a>");
+        
+                
+                
            }
             
             function win(r) {
@@ -900,7 +1013,7 @@
                 //navigator.notification.alert(f_where);
                 
                 // Take picture using device camera and retrieve image as base64-encoded string
-                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 30,allowEdit: true,destinationType: destinationType.FILE_URI });
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,allowEdit: true,destinationType: destinationType.FILE_URI });
                 
                 hide('opencarmra');
                 
@@ -927,7 +1040,7 @@
                 
                 }
              
-                var l_url ="http://10.0.0.61:8015/Pages/Json.aspx?savefarmID="+ localStorage.j_username;
+                var l_url ="http://pt.hbtlh.com/Pages/Json.aspx?savefarmID="+ localStorage.j_username;
                 var options = new FileUploadOptions();
                 options.fileKey="Upd_farm";
                 options.fileName = g_imageURI.substr(g_imageURI.lastIndexOf('/')+1);
@@ -962,37 +1075,63 @@
             }
         
         
-        function SetSize(obj, width, height)
-        {
-            myImage = new Image();
-            myImage.src = obj.src;
-            if (myImage.width>0 && myImage.height>0)
-            {
-                var rate = 1;
-                if (myImage.width>width || myImage.height>height)
-                {
-                    if (width/myImage.width<height/myImage.height)
-                    {
-                        rate = width/myImage.width;
-                    }
-                    else
-                    {
-                        rate = height/myImage.height;
-                    }
-                }
-                if (window.navigator.appName == "Microsoft Internet Explorer")
-                {
-                    obj.style.zoom = rate;
-                }
-                else
-                {
-                    obj.width = myImage.width*rate;
-                    obj.height = myImage.height*rate;
-                }
-            }
+     
+        
+        function resizephoto(){
+            
+    $("#imgedit").remove();
+            
+    $("#imgsave").append("<a href='javascript:void(0)' onclick='savephoto();'>保存</a>");
+            
+            //console.log("get image path >>>" + localStorage.f_imageURI );
+       
+            //setTimeout("window.location='"+'./tutorial3.html'+"'",1000);
+            
+          $('#largeImage').Jcrop({
+                                 
+                                 onChange: showpreview,
+                                 onSelect: showpreview,
+                                 setSelect:[10, 10, 300, 200],
+                                 aspectRatio: 3/2
+                 });
+        
+        
         }
         
-            </script>
+        function showpreview(c){
+            
+            
+            //var sbsbsb = document.getElementById('targetimage');
+            
+            //sbsbsb.src = localStorage.f_imageURI;
+            
+            
+        
+        
+      
+            
+            console.log("width=" + c.w + "height=" + c.h);
+           
+            //console.log("Path=" + localStorage.f_imageURI);
+            
+            console.log("c.x=" + c.x);
+            
+            console.log("c.y=" + c.y);
+            
+        window.imageResizer.resizeImage(successCallBack, failCallBack, imageData, width, height, options);
+        
+        }
+        
+        
+        function savephoto(){
+        
+        
+          hide('resizephoto');
+     
+       
+        }
+        
+       </script>
         
     
 
@@ -1013,6 +1152,27 @@
             
             </div>
           
+        </div>
+        
+        <div id="resizephoto" class="white_photo">
+            
+            <div class="resizecon" >
+                
+          <img alt='[Jcrop Example]' style='display:none;width:320px;margin:0px;padding:0px;' id='largeImage'   src='' />
+             
+             
+             
+             <div style='z-index:9999; position:fixed;bottom:0px;'>
+<div class="c2"><a href="javascript:void(0)" onclick="location.reload();">返回</a></div>
+<div id='imgpanel' class="c3">
+    <div id='imgedit'></div><div id='imgsave'></div>
+                 </div>
+             </div>
+             
+            </div>
+        
+           
+           
         </div>
         
         
