@@ -361,8 +361,20 @@
                 
                 var pushNotification = window.plugins.pushNotification;
                 pushNotification.registerDevice({alert:true, badge:true, sound:true}, function(status) {
+<<<<<<< HEAD
                                 console.log("deviceToken:>>>>>>>" + status.deviceToken);
                                 localStorage.j_deviceToken = status.deviceToken;
+=======
+                                    console.log("deviceToken:>>>>>>>" + status.deviceToken);
+                                  
+                                   if(status.deviceToken != null){
+                                                localStorage.j_deviceToken = status.deviceToken;
+                                                }else{
+                                                
+                                                localStorage.j_deviceToken ="";
+                                                }
+
+>>>>>>> 0e42fffc05b4271b610f8c6f1c6ef0be9e771efb
                                                 
                                                 });
             }
