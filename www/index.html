@@ -230,7 +230,7 @@
                 
               $("#n_info").remove();
                 
-               var jcontact= "http://pt.hbtlh.com/Pages/Json.aspx?backpwd=11";
+               var jcontact= "http://10.0.0.61:8015/Pages/Json.aspx?backpwd=11";
                 
                 var str ="<div id='n_info' style='padding:8px;color:#333;'>请点击电话号码,联系管理员";
                 $.getJSON(
@@ -302,7 +302,7 @@
                 
                 //var t_url = "http://218.246.35.203/Pages/Json.aspx?logid="+ t_username +"&logpwd="+ t_password+"";
 
-                var t_url = "http://pt.hbtlh.com/Pages/Json.aspx?logid="+ t_username +"&logpwd="+ t_password+"";
+                var t_url = "http://10.0.0.61:8015/Pages/Json.aspx?logid="+ t_username +"&logpwd="+ t_password+"";
 
                 //alert(t_url);
                 
@@ -356,27 +356,6 @@
                 
                 //console.log("?????");
                 //console.log(">>>>>>>" + device.token);
-                
-                
-                
-                var pushNotification = window.plugins.pushNotification;
-                pushNotification.registerDevice({alert:true, badge:true, sound:true}, function(status) {
-<<<<<<< HEAD
-                                console.log("deviceToken:>>>>>>>" + status.deviceToken);
-                                localStorage.j_deviceToken = status.deviceToken;
-=======
-                                    console.log("deviceToken:>>>>>>>" + status.deviceToken);
-                                  
-                                   if(status.deviceToken != null){
-                                                localStorage.j_deviceToken = status.deviceToken;
-                                                }else{
-                                                
-                                                localStorage.j_deviceToken ="";
-                                                }
-
->>>>>>> 0e42fffc05b4271b610f8c6f1c6ef0be9e771efb
-                                                
-                                                });
             }
             
             // alert dialog dismissed
@@ -402,7 +381,7 @@
                 navigator.notification.alert('Connection type: ' + states[networkState]);
             }
         
-    
+        
         
             </script>
 
