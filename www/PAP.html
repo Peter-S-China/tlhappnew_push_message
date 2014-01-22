@@ -29,6 +29,11 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
         <script type="text/javascript" src="cordova-2.5.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        
+        
+        
         <title>PAP</title>
         
                  </head>
@@ -122,7 +127,18 @@
                                }
                                
                                else if(data[i].result == "0"){
-                             
+                               
+    var vpurl = "http://10.0.0.61:8015/Pages/Json.aspx?phoneuserid="+ localStorage.j_username +"|1&tokencode=" + localStorage.deviceToken;
+    
+    //alert(vpurl);
+    $.post(vpurl,{ "post": "token" },function(data){
+                                      
+                    console.log(data);
+                    //alert(data);
+                                      
+                                      }, "json");
+
+                               
                                                                 
                                    $("#smessage").append("<h3>"+ data[i].grade +"</h3>");
                                

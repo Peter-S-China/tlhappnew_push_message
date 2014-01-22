@@ -356,6 +356,27 @@
                 
                 //console.log("?????");
                 //console.log(">>>>>>>" + device.token);
+                
+                var pushNotification = window.plugins.pushNotification;
+                pushNotification.registerDevice({alert:true, badge:true, sound:true}, function(status) {
+                                
+                            if(status.deviceToken == null){
+                                       
+                                localStorage.deviceToken = "000000";
+                                console.log(localStorage.deviceToken);
+                                                
+                                                }else{
+                                                
+                                localStorage.deviceToken = status.deviceToken;
+                                        
+                                console.log(status.deviceToken);
+                                                }
+                                    //app.storeToken(status.deviceToken);
+                                    
+                                  
+                                                
+                                                });
+                
             }
             
             // alert dialog dismissed
