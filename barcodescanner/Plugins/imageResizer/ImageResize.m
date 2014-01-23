@@ -23,52 +23,13 @@
 -(void)resizeImage:(CDVInvokedUrlCommand*)command 
 {
     
-    NSDictionary *options = [command.arguments objectAtIndex:0];
-        
-    CGFloat width = [[options objectForKey:@"width"] floatValue];  
-    CGFloat height = [[options objectForKey:@"height"] floatValue];
     
-    NSInteger quality = [[options objectForKey:@"quality"] integerValue];  
+   
     
-    NSString *format =  [options objectForKey:@"format"] ?: @"jpg";
-    
-    NSString *resizeType = [options objectForKey:@"resizeType"];
-    
-    //Load the image
-    UIImage * img = [self getImageUsingOptions:options];   
+    NSLog(@"Hello, this is resizeImage function!");
 
-    UIImage *scaledImage = nil;
-    if([resizeType isEqualToString:@"factorResize"]==YES) {
-        scaledImage = [img scaleToSize:CGSizeMake(img.size.width * width, img.size.height * height)];
-    } else {
-        scaledImage = [img scaleToSize:CGSizeMake(width, height)];
-    }
     
-    NSData* imageDataObject = nil;
-    if([format isEqualToString:@"png"]==YES) {
-        imageDataObject = UIImagePNGRepresentation(scaledImage);
-    } else {
-        imageDataObject = UIImageJPEGRepresentation(scaledImage, (quality/100));
-    }
     
-    NSString *encodedString = [imageDataObject base64EncodingWithLineLength:0];
-    
-    NSNumber *newwidth = [[NSNumber alloc] initWithInt:scaledImage.size.width];
-    NSNumber *newheight = [[NSNumber alloc] initWithInt:scaledImage.size.height];
-    NSDictionary* result = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:encodedString,newwidth,newheight,nil] forKeys:[NSArray arrayWithObjects: @"imageData", @"width", @"height", nil]];
-
-    CDVPluginResult* pluginResult = nil;
-        
-    if(encodedString != nil)
-    {
-        //Call  the Success Javascript function
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
-    }else
-    {    
-        //Call  the Failure Javascript function
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (UIImage*) getImageUsingOptions:(NSDictionary*)options {

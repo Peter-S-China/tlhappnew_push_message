@@ -1,15 +1,15 @@
 /**
  * An Image Resizer Plugin for PhoneGap. Updated to fit Cordova 2+
  * The JavaScript based plugin fits both the Android and the iOS native plugins.
- * 
+ *
  * The software is open source, MIT licensed.
  * Copyright (C) 2012, webXells GmbH All Rights Reserved.
- * 
+ *
  * Raanan Weber, webXells GmbH http://www.webxells.com
  */
 
 var ImageResizer = function() {
-
+    
 };
 
 ImageResizer.IMAGE_DATA_TYPE_BASE64 = "base64Image";
@@ -26,7 +26,7 @@ ImageResizer.FORMAT_PNG = "png";
  * @param imageData The image data, either base64 or local url
  * @param width width factor / width in pixels
  * @param height height factor / height in pixels
- * @param options extra options -  
+ * @param options extra options -
  *              format : file format to use (ImageResizer.FORMAT_JPG/ImageResizer.FORMAT_PNG) - defaults to JPG
  *              imageDataType : the data type (IMAGE_DATA_TYPE_BASE64/IMAGE_DATA_TYPE_URL) - defaults to Base64
  *              resizeType : type of the resize (RESIZE_TYPE_FACTOR/RESIZE_TYPE_PIXEL) - must be given
@@ -37,9 +37,9 @@ ImageResizer.FORMAT_PNG = "png";
  *              width: width of the resized image
  */
 ImageResizer.prototype.resizeImage = function(success, fail, imageData, width,
-        height, options) {
+                                              height, options) {
     if (!options) {
-        options = {};
+        options = {}
     }
     var params = {
         data : imageData,
@@ -49,41 +49,43 @@ ImageResizer.prototype.resizeImage = function(success, fail, imageData, width,
         imageDataType : options.imageType,
         resizeType : options.resizeType,
         quality : options.quality ? options.quality : 70
-    }
-
-   cordova.exec(success, fail, "com.webXells.imageResizer",
-            "resizeImage", [params]);
-};
+    };
+    
+    return cordova.exec(success, fail, "com.webXells.imageResizer",
+                        "resizeImage", [params]);
+    
+    
+}
 /**
  * Get an image width and height
  * @param success success callback, will receive the data sent from the native plugin
  * @param fail error callback, will receive an error string describing what went wrong
  * @param imageData The image data, either base64 or local url
- * @param options extra options -  
+ * @param options extra options -
  *              imageDataType : the data type (IMAGE_DATA_TYPE_BASE64/IMAGE_DATA_TYPE_URL) - defaults to Base64
  * @returns JSON Object with the following parameters:
  *              height : height of the image
  *              width: width of the image
  */
 ImageResizer.prototype.getImageSize = function(success, fail, imageData,
-        options) {
+                                               options) {
     if (!options) {
-        options = {};
+        options = {}
     }
     var params = {
         data : imageData,
-        imageDataType : options.imageType 
-    }
-  cordova.exec(success, fail, "com.webXells.imageResizer",
-            "imageSize", [params]);
-};
+        imageDataType : options.imageType
+    };
+    return cordova.exec(success, fail, "com.webXells.imageResizer",
+                        "imageSize", [params]);
+}
 
 /**
  * Store an image locally
  * @param success success callback, will receive the data sent from the native plugin
  * @param fail error callback, will receive an error string describing what went wrong
  * @param imageData The image data, either base64 or local url
- * @param options extra options -  
+ * @param options extra options -
  *              format : file format to use (ImageResizer.FORMAT_JPG/ImageResizer.FORMAT_PNG) - defaults to JPG
  *              imageDataType : the data type (IMAGE_DATA_TYPE_BASE64/IMAGE_DATA_TYPE_URL) - defaults to Base64
  *              filename : filename to be stored, with ot without ending (if no ending given, format will be used) - must be given.
@@ -96,7 +98,7 @@ ImageResizer.prototype.getImageSize = function(success, fail, imageData,
  */
 ImageResizer.prototype.storeImage = function(success, fail, imageData, options) {
     if (!options) {
-        options = {};
+        options = {}
     }
     var params = {
         data : imageData,
@@ -106,19 +108,17 @@ ImageResizer.prototype.storeImage = function(success, fail, imageData, options) 
         directory : options.directory,
         quality : options.quality ? options.quality : 100,
 		photoAlbum : options.photoAlbum ? options.photoAlbum : true
-    }
-
-    cordova.exec(success, fail, "com.webXells.imageResizer",
-            "storeImage", [params]);
-};
-
-if(!window.plugins) {
-    window.plugins = {};
-}
-if (!window.plugins.imageResizer) {
-    window.plugins.imageResizer = new ImageResizer();
+    };
+    
+    return cordova.exec(success, fail, "com.webXells.imageResizer",
+                        "storeImage", [params]);
 }
 
-if (module.exports) {
-    module.exports = ImageResizer;
-}
+cordova.addConstructor(function() {
+                       window.imageResizer = new ImageResizer();
+                       
+                       // backwards compatibility
+                       window.plugins = window.plugins || {};
+                       window.plugins.imageResizer = window.imageResizer;
+                       console.log("Image Resizer Registered under window.imageResizer");
+                       });

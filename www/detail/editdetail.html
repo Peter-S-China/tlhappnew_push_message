@@ -28,12 +28,14 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script src="js/jquery_last_mini.js"></script>
         <script type="text/javascript" src="../js/imageresize.js"></script>
+      
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         
         
         <script src="js/jquery.js"></script>
         <script src="js/jquery.Jcrop.js"></script>
         <link rel="stylesheet" href="css/jquery.Jcrop.css">
+            
      
      <title>editdetail</title>
        <style>
@@ -898,8 +900,8 @@
                 pictureSource=navigator.camera.PictureSourceType;
                 destinationType=navigator.camera.DestinationType;
             }
-            
-            
+        
+        
             function getPhoto0(){
                 
                 
@@ -918,7 +920,9 @@
                 
                 show('resizephoto');
                 
-                
+               
+               
+         
                
                 
                 f_where = "LIBRARY";
@@ -951,14 +955,13 @@
                 
                 g_imageURI = imageURI;
                 
-                //localStorage.f_imageURI = g_imageURI;
+                localStorage.f_imageURI = g_imageURI;
         
         $("#imgedit").append("<a href='javascript:void(0)' onclick='resizephoto();'>编辑</a>");
         
                 
-                
            }
-            
+        
             function win(r) {
                 console.log("Code = " + r.responseCode);
                 console.log("Response = " + r.response);
@@ -1118,7 +1121,7 @@
             
             console.log("c.y=" + c.y);
             
-        window.imageResizer.resizeImage(successCallBack, failCallBack, imageData, width, height, options);
+            
         
         }
         
@@ -1127,7 +1130,9 @@
         
         
           hide('resizephoto');
-     
+          
+          //console.log(">>>>>" + localStorage.f_imageURI);
+          window.imageResizer.resizeImage();
        
         }
         

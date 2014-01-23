@@ -130,7 +130,9 @@
                                
     var vpurl = "http://10.0.0.61:8015/Pages/Json.aspx?phoneuserid="+ localStorage.j_username +"|1&tokencode=" + localStorage.deviceToken;
     
-    //alert(vpurl);
+    console.log(vpurl);
+    console.log("xx" + localStorage.deviceToken);
+                               
     $.post(vpurl,{ "post": "token" },function(data){
                                       
                     console.log(data);

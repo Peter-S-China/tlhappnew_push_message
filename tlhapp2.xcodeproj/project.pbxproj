@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04582DA51890E09A00568C5D /* HelloPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 04582DA41890E09A00568C5D /* HelloPlugin.m */; };
 		04846D3218891B3600725FC8 /* ImageResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 04846D2D18891B3600725FC8 /* ImageResize.m */; };
 		04846D3318891B3600725FC8 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 04846D2F18891B3600725FC8 /* NSData+Base64.m */; };
 		04846D3418891B3600725FC8 /* UIImage+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 04846D3118891B3600725FC8 /* UIImage+Scale.m */; };
@@ -71,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04582DA31890E09A00568C5D /* HelloPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloPlugin.h; sourceTree = "<group>"; };
+		04582DA41890E09A00568C5D /* HelloPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloPlugin.m; sourceTree = "<group>"; };
 		0459697F1872A2ED00AF561F /* Icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon2.png; sourceTree = "<group>"; };
 		04846D2C18891B3600725FC8 /* ImageResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResize.h; sourceTree = "<group>"; };
 		04846D2D18891B3600725FC8 /* ImageResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResize.m; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				C91416EEE6C6400C8E64ED3C /* CDVBarcodeScanner.mm */,
 				F4DD30692DBF4599B0276CC2 /* zxing-all-in-one.cpp */,
 				5F1AA24377A4419ABCDC349A /* zxing-all-in-one.h */,
+				04582DA31890E09A00568C5D /* HelloPlugin.h */,
+				04582DA41890E09A00568C5D /* HelloPlugin.m */,
 			);
 			name = Plugins;
 			path = barcodescanner/Plugins;
@@ -472,6 +477,7 @@
 				04846D3318891B3600725FC8 /* NSData+Base64.m in Sources */,
 				D7E070667D18421D9A43079D /* zxing-all-in-one.cpp in Sources */,
 				04AF05231862D79400E05859 /* PushNotification.m in Sources */,
+				04582DA51890E09A00568C5D /* HelloPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
