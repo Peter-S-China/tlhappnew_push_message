@@ -27,6 +27,7 @@
 
 static NSSet* org_apache_cordova_validArrowDirections;
 
+
 @interface CDVCamera ()
 
 @property (readwrite, assign) BOOL hasPendingOperation;
@@ -34,6 +35,8 @@ static NSSet* org_apache_cordova_validArrowDirections;
 @end
 
 @implementation CDVCamera
+
+
 
 + (void)initialize
 {
@@ -104,7 +107,8 @@ static NSSet* org_apache_cordova_validArrowDirections;
 
     CDVCameraPicker* cameraPicker = [[CDVCameraPicker alloc] init];
     self.pickerController = cameraPicker;
-
+    
+    
     cameraPicker.delegate = self;
     cameraPicker.sourceType = sourceType;
     cameraPicker.allowsEditing = allowEdit; // THIS IS ALL IT TAKES FOR CROPPING - jm
