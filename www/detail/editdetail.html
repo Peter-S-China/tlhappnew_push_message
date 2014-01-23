@@ -911,7 +911,7 @@
           
         navigator.camera.getPicture(uploadPhoto,
                                             function(message) { navigator.notification.alert('请选择图片',alertDismissed,'提示','确定'); },
-                                    { quality:50,destinationType: navigator.camera.DestinationType.FILE_URI,
+                                    { quality:50,destinationType: navigator.camera.DestinationType.FILE_URI,allowEdit:true,
                                             sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY}
                                             );
                               
@@ -1132,7 +1132,7 @@
           hide('resizephoto');
           
           //console.log(">>>>>" + localStorage.f_imageURI);
-          window.imageResizer.resizeImage();
+
        
         }
         
@@ -1163,7 +1163,7 @@
             
             <div class="resizecon" >
                 
-          <img alt='[Jcrop Example]' style='display:none;width:320px;margin:0px;padding:0px;' id='largeImage'   src='' />
+          <img alt='' style='display:none;width:320px;margin:0px;padding:0px;' id='largeImage'   src='' />
              
              
              
